@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Properties | Premier Properties</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="properties.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Optimized SVG Icon Loading -->
+    <script src="icons-loader.js" defer></script>
+
+    <!-- Leaflet CSS and JavaScript for reliable map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Premier Properties</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="properties.html" class="nav-link active">Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link contact-btn">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="properties-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Luxury Properties</h1>
+            <p>Discover exceptional homes in the world's most desirable locations</p>
+        </div>
+    </section>
+
+    <!-- Search Filters -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <h3>Find Your Perfect Home</h3>
+                <div class="search-filters">
+                    <div class="filter-group">
+                        <label for="location">Location</label>
+                        <select id="location">
+                            <option value="">All Locations</option>
+                            <option value="beverly-hills">Beverly Hills, CA</option>
+                            <option value="manhattan">Manhattan, NY</option>
+                            <option value="malibu">Malibu, CA</option>
+                            <option value="miami">Miami, FL</option>
+                            <option value="aspen">Aspen, CO</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="price-range">Price Range</label>
+                        <select id="price-range">
+                            <option value="">Any Price</option>
+                            <option value="5-10">$5M - $10M</option>
+                            <option value="10-20">$10M - $20M</option>
+                            <option value="20-50">$20M - $50M</option>
+                            <option value="50+">$50M+</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="bedrooms">Bedrooms</label>
+                        <select id="bedrooms">
+                            <option value="">Any</option>
+                            <option value="3+">3+</option>
+                            <option value="4+">4+</option>
+                            <option value="5+">5+</option>
+                            <option value="6+">6+</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="property-type">Property Type</label>
+                        <select id="property-type">
+                            <option value="">All Types</option>
+                            <option value="villa">Villa</option>
+                            <option value="penthouse">Penthouse</option>
+                            <option value="estate">Estate</option>
+                            <option value="mansion">Mansion</option>
+                        </select>
+                    </div>
+
+                    <button class="search-btn">Search Properties</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Grid -->
+    <section class="properties-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Available Properties</h2>
+                <div class="view-options">
+                    <button class="view-btn active" data-view="grid">⊞ Grid</button>
+                    <button class="view-btn" data-view="list">☰ List</button>
+                </div>
+            </div>
+
+            <div class="properties-grid" id="properties-grid">
+                <!-- Property 1 -->
+                <div class="property-card" data-location="beverly-hills" data-price="12500000" data-bedrooms="6">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Luxury Villa">
+                        <div class="property-badge">Featured</div>
+                        <div class="property-status">For Sale</div>
+                        <div class="property-overlay">
+                            <button class="btn btn-outline">View Details</button>
+                            <button class="btn btn-outline">Schedule Tour</button>
+                        </div>
+                        <div class="image-gallery-indicator">1 / 12</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Modern Luxury Villa</h3>
+                        <p class="property-location"><svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg> Beverly Hills, CA</p>
+                        <p class="property-price">$12,500,000</p>
+                        <div class="property-features">
+                            <span><svg class="icon">
+                                    <use href="#icon-bed"></use>
+                                </svg> 6 Beds</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bath"></use>
+                                </svg> 8 Baths</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-area"></use>
+                                </svg> 8,500 sqft</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-garage"></use>
+                                </svg> 3 Garage</span>
+                        </div>
+                        <div class="property-highlights">
+                            <span>Pool</span>
+                            <span>Garden</span>
+                            <span>Wine Cellar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 2 -->
+                <div class="property-card" data-location="manhattan" data-price="18750000" data-bedrooms="4">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Downtown Penthouse">
+                        <div class="property-badge">New</div>
+                        <div class="property-status">For Sale</div>
+                        <div class="property-overlay">
+                            <button class="btn btn-outline">View Details</button>
+                            <button class="btn btn-outline">Schedule Tour</button>
+                        </div>
+                        <div class="image-gallery-indicator">1 / 8</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Downtown Penthouse</h3>
+                        <p class="property-location"><svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg> Manhattan, NY</p>
+                        <p class="property-price">$18,750,000</p>
+                        <div class="property-features">
+                            <span><svg class="icon">
+                                    <use href="#icon-bed"></use>
+                                </svg> 4 Beds</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bath"></use>
+                                </svg> 5 Baths</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-area"></use>
+                                </svg> 6,200 sqft</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-building"></use>
+                                </svg> 45th Floor</span>
+                        </div>
+                        <div class="property-highlights">
+                            <span>City Views</span>
+                            <span>Private Elevator</span>
+                            <span>Terrace</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 3 -->
+                <div class="property-card" data-location="malibu" data-price="24900000" data-bedrooms="8">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Oceanfront Estate">
+                        <div class="property-badge">Exclusive</div>
+                        <div class="property-status">For Sale</div>
+                        <div class="property-overlay">
+                            <button class="btn btn-outline">View Details</button>
+                            <button class="btn btn-outline">Schedule Tour</button>
+                        </div>
+                        <div class="image-gallery-indicator">1 / 15</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Oceanfront Estate</h3>
+                        <p class="property-location"><svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg> Malibu, CA</p>
+                        <p class="property-price">$24,900,000</p>
+                        <div class="property-features">
+                            <span><svg class="icon">
+                                    <use href="#icon-bed"></use>
+                                </svg> 8 Beds</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bath"></use>
+                                </svg> 10 Baths</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-area"></use>
+                                </svg> 12,000 sqft</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-beach"></use>
+                                </svg> Beachfront</span>
+                        </div>
+                        <div class="property-highlights">
+                            <span>Private Beach</span>
+                            <span>Guest House</span>
+                            <span>Tennis Court</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 4 -->
+                <div class="property-card" data-location="miami" data-price="8900000" data-bedrooms="5">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Miami Beach Condo">
+                        <div class="property-badge">Hot</div>
+                        <div class="property-status">For Sale</div>
+                        <div class="property-overlay">
+                            <button class="btn btn-outline">View Details</button>
+                            <button class="btn btn-outline">Schedule Tour</button>
+                        </div>
+                        <div class="image-gallery-indicator">1 / 10</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Miami Beach Residence</h3>
+                        <p class="property-location"><svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg> Miami Beach, FL</p>
+                        <p class="property-price">$8,900,000</p>
+                        <div class="property-features">
+                            <span><svg class="icon">
+                                    <use href="#icon-bed"></use>
+                                </svg> 5 Beds</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bath"></use>
+                                </svg> 6 Baths</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-area"></use>
+                                </svg> 5,800 sqft</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-pool"></use>
+                                </svg> Pool</span>
+                        </div>
+                        <div class="property-highlights">
+                            <span>Ocean Views</span>
+                            <span>Smart Home</span>
+                            <span>Gym</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 5 -->
+                <div class="property-card" data-location="aspen" data-price="15200000" data-bedrooms="6">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aspen Mountain Lodge">
+                        <div class="property-badge">New</div>
+                        <div class="property-status">For Sale</div>
+                        <div class="property-overlay">
+                            <button class="btn btn-outline">View Details</button>
+                            <button class="btn btn-outline">Schedule Tour</button>
+                        </div>
+                        <div class="image-gallery-indicator">1 / 18</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Aspen Mountain Lodge</h3>
+                        <p class="property-location"><svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg> Aspen, CO</p>
+                        <p class="property-price">$15,200,000</p>
+                        <div class="property-features">
+                            <span><svg class="icon">
+                                    <use href="#icon-bed"></use>
+                                </svg> 6 Beds</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bath"></use>
+                                </svg> 7 Baths</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-area"></use>
+                                </svg> 9,200 sqft</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-ski"></use>
+                                </svg> Ski Access</span>
+                        </div>
+                        <div class="property-highlights">
+                            <span>Mountain Views</span>
+                            <span>Fireplace</span>
+                            <span>Hot Tub</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Property 6 -->
+                <div class="property-card" data-location="beverly-hills" data-price="32500000" data-bedrooms="7">
+                    <div class="property-image">
+                        <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beverly Hills Mansion">
+                        <div class="property-badge">Luxury</div>
+                        <div class="property-status">For Sale</div>
+                        <div class="property-overlay">
+                            <button class="btn btn-outline">View Details</button>
+                            <button class="btn btn-outline">Schedule Tour</button>
+                        </div>
+                        <div class="image-gallery-indicator">1 / 22</div>
+                    </div>
+                    <div class="property-info">
+                        <h3>Beverly Hills Mansion</h3>
+                        <p class="property-location"><svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg> Beverly Hills, CA</p>
+                        <p class="property-price">$32,500,000</p>
+                        <div class="property-features">
+                            <span><svg class="icon">
+                                    <use href="#icon-bed"></use>
+                                </svg> 7 Beds</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bath"></use>
+                                </svg> 12 Baths</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-area"></use>
+                                </svg> 15,000 sqft</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-theater"></use>
+                                </svg> Theater</span>
+                        </div>
+                        <div class="property-highlights">
+                            <span>Infinity Pool</span>
+                            <span>Wine Cellar</span>
+                            <span>Guest House</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="load-more">
+                <button class="btn btn-primary">Load More Properties</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Property Locations</h2>
+                <p>Explore our luxury properties on the map</p>
+            </div>
+            <div class="map-container">
+                <div id="properties-map" style="height: 500px; width: 100%; border-radius: 15px; overflow: hidden; border: 3px solid var(--primary-gold);">
+                    <!-- Google Maps will be loaded here via JavaScript API -->
+                </div>
+                <div class="map-legend">
+                    <h4>Our Premium Locations</h4>
+                    <div class="location-list">
+                        <div class="location-item" data-location="beverly-hills">
+                            <svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg>
+                            <span>Beverly Hills, CA</span>
+                            <span class="property-count">3 Properties</span>
+                        </div>
+                        <div class="location-item" data-location="manhattan">
+                            <svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg>
+                            <span>Manhattan, NY</span>
+                            <span class="property-count">1 Property</span>
+                        </div>
+                        <div class="location-item" data-location="malibu">
+                            <svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg>
+                            <span>Malibu, CA</span>
+                            <span class="property-count">1 Property</span>
+                        </div>
+                        <div class="location-item" data-location="miami">
+                            <svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg>
+                            <span>Miami Beach, FL</span>
+                            <span class="property-count">1 Property</span>
+                        </div>
+                        <div class="location-item" data-location="aspen">
+                            <svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg>
+                            <span>Aspen, CO</span>
+                            <span class="property-count">1 Property</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Can't Find What You're Looking For?</h2>
+                <p>Our expert team has access to exclusive off-market properties</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Contact Our Team</a>
+                    <a href="tel:+1-555-PREMIER" class="btn btn-secondary">Call (555) PREMIER</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Premier Properties</h3>
+                    <p>Setting the standard for luxury real estate excellence since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><svg class="icon icon-hover">
+                                <use href="#icon-facebook"></use>
+                            </svg></a>
+                        <a href="#" aria-label="Instagram"><svg class="icon icon-hover">
+                                <use href="#icon-instagram"></use>
+                            </svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg class="icon icon-hover">
+                                <use href="#icon-linkedin"></use>
+                            </svg></a>
+                        <a href="#" aria-label="Twitter"><svg class="icon icon-hover">
+                                <use href="#icon-twitter"></use>
+                            </svg></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Luxury Sales</a></li>
+                        <li><a href="services.html">Investment Consulting</a></li>
+                        <li><a href="services.html">Market Analysis</a></li>
+                        <li><a href="services.html">Property Management</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><svg class="icon icon-sm icon-primary">
+                            <use href="#icon-email"></use>
+                        </svg> info@premierproperties.com</p>
+                    <p><svg class="icon icon-sm icon-primary">
+                            <use href="#icon-phone"></use>
+                        </svg> (555) PREMIER</p>
+                    <p><svg class="icon icon-sm icon-primary">
+                                <use href="#icon-location"></use>
+                            </svg> Beverly Hills, CA</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premier Properties. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="properties.js"></script>
+</body>
+</html>

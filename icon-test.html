@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Icons Test | Premier Properties</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background: white;
+        }
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        .icon-sample {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+        .icon-sample h4 {
+            margin: 10px 0 5px;
+            font-size: 0.9rem;
+            color: var(--deep-black);
+        }
+        .size-demo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Optimized SVG Icon Loading -->
+    <script src="icons-loader.js" defer></script>
+
+    <div class="test-container">
+        <h1>SVG Icons Test Page</h1>
+        <p>This page tests all the SVG icons used throughout the Premier Properties website.</p>
+
+        <h2>Social Media Icons</h2>
+        <div class="icon-grid">
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-facebook"></use>
+                </svg>
+                <h4>Facebook</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-instagram"></use>
+                </svg>
+                <h4>Instagram</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-linkedin"></use>
+                </svg>
+                <h4>LinkedIn</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-twitter"></use>
+                </svg>
+                <h4>Twitter</h4>
+            </div>
+        </div>
+
+        <h2>Contact Icons</h2>
+        <div class="icon-grid">
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-email"></use>
+                </svg>
+                <h4>Email</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-phone"></use>
+                </svg>
+                <h4>Phone</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-location"></use>
+                </svg>
+                <h4>Location</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-clock"></use>
+                </svg>
+                <h4>Clock</h4>
+            </div>
+        </div>
+
+        <h2>Property Feature Icons</h2>
+        <div class="icon-grid">
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-bed"></use>
+                </svg>
+                <h4>Bedrooms</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-bath"></use>
+                </svg>
+                <h4>Bathrooms</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-area"></use>
+                </svg>
+                <h4>Square Footage</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-garage"></use>
+                </svg>
+                <h4>Garage</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-building"></use>
+                </svg>
+                <h4>Building</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-beach"></use>
+                </svg>
+                <h4>Beach</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-pool"></use>
+                </svg>
+                <h4>Pool</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-ski"></use>
+                </svg>
+                <h4>Ski Access</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-theater"></use>
+                </svg>
+                <h4>Theater</h4>
+            </div>
+        </div>
+
+        <h2>Business/Service Icons</h2>
+        <div class="icon-grid">
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-trophy"></use>
+                </svg>
+                <h4>Trophy (Luxury Sales)</h4>
+                <p style="font-size: 0.8rem; color: #666;">Used in service cards</p>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-chart"></use>
+                </svg>
+                <h4>Chart (Investment)</h4>
+                <p style="font-size: 0.8rem; color: #666;">Investment consulting</p>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-analytics"></use>
+                </svg>
+                <h4>Analytics (Market Analysis)</h4>
+                <p style="font-size: 0.8rem; color: #666;">Market analysis service</p>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-target"></use>
+                </svg>
+                <h4>Target (Concierge)</h4>
+                <p style="font-size: 0.8rem; color: #666;">Concierge services</p>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-globe"></use>
+                </svg>
+                <h4>Globe (Global Network)</h4>
+                <p style="font-size: 0.8rem; color: #666;">Global network access</p>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-crown"></use>
+                </svg>
+                <h4>Crown (Private Client)</h4>
+                <p style="font-size: 0.8rem; color: #666;">Private client services</p>
+            </div>
+        </div>
+
+        <h2>Service Cards Demo</h2>
+        <div style="background: var(--light-grey); padding: 40px; border-radius: 10px; margin: 30px 0;">
+            <h3>Test Service Cards (matching actual website)</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 20px;">
+                <div style="background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 20px;">
+                        <svg class="icon icon-3xl icon-primary">
+                            <use href="#icon-trophy"></use>
+                        </svg>
+                    </div>
+                    <h4>Luxury Property Sales</h4>
+                    <p style="color: #666; margin-top: 10px;">Expert guidance through every step of buying or selling luxury real estate.</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 20px;">
+                        <svg class="icon icon-3xl icon-primary">
+                            <use href="#icon-chart"></use>
+                        </svg>
+                    </div>
+                    <h4>Investment Consulting</h4>
+                    <p style="color: #666; margin-top: 10px;">Strategic investment advice for building luxury real estate portfolios.</p>
+                </div>
+                <div style="background: white; padding: 30px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <div style="margin-bottom: 20px;">
+                        <svg class="icon icon-3xl icon-primary">
+                            <use href="#icon-globe"></use>
+                        </svg>
+                    </div>
+                    <h4>Global Network Access</h4>
+                    <p style="color: #666; margin-top: 10px;">Exclusive access to international luxury properties worldwide.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2>Decorative Icons</h2>
+        <div class="icon-grid">
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-star"></use>
+                </svg>
+                <h4>Star</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-diamond"></use>
+                </svg>
+                <h4>Diamond</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-sparkle"></use>
+                </svg>
+                <h4>Sparkle</h4>
+            </div>
+        </div>
+
+        <h2>Map/Location Icons</h2>
+        <div class="icon-grid">
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-map"></use>
+                </svg>
+                <h4>Map</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-parking"></use>
+                </svg>
+                <h4>Parking</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-metro"></use>
+                </svg>
+                <h4>Metro</h4>
+            </div>
+            <div class="icon-sample">
+                <svg class="icon icon-2xl icon-primary">
+                    <use href="#icon-amenities"></use>
+                </svg>
+                <h4>Amenities</h4>
+            </div>
+        </div>
+
+        <h2>Size Variations</h2>
+        <div class="icon-sample">
+            <h4>Trophy Icon in Different Sizes</h4>
+            <div class="size-demo">
+                <svg class="icon icon-sm">
+                    <use href="#icon-trophy"></use>
+                </svg>
+                <span>Small (.icon-sm)</span>
+            </div>
+            <div class="size-demo">
+                <svg class="icon">
+                    <use href="#icon-trophy"></use>
+                </svg>
+                <span>Default (.icon)</span>
+            </div>
+            <div class="size-demo">
+                <svg class="icon icon-lg">
+                    <use href="#icon-trophy"></use>
+                </svg>
+                <span>Large (.icon-lg)</span>
+            </div>
+            <div class="size-demo">
+                <svg class="icon icon-xl">
+                    <use href="#icon-trophy"></use>
+                </svg>
+                <span>Extra Large (.icon-xl)</span>
+            </div>
+            <div class="size-demo">
+                <svg class="icon icon-2xl">
+                    <use href="#icon-trophy"></use>
+                </svg>
+                <span>2X Large (.icon-2xl)</span>
+            </div>
+            <div class="size-demo">
+                <svg class="icon icon-3xl">
+                    <use href="#icon-trophy"></use>
+                </svg>
+                <span>3X Large (.icon-3xl)</span>
+            </div>
+        </div>
+
+        <h2>Color Variations</h2>
+        <div class="icon-sample">
+            <h4>Location Icon in Different Colors</h4>
+            <div class="size-demo">
+                <svg class="icon icon-lg icon-primary">
+                    <use href="#icon-location"></use>
+                </svg>
+                <span>Primary Gold (.icon-primary)</span>
+            </div>
+            <div class="size-demo">
+                <svg class="icon icon-lg icon-secondary">
+                    <use href="#icon-location"></use>
+                </svg>
+                <span>Secondary Grey (.icon-secondary)</span>
+            </div>
+            <div class="size-demo">
+                <svg class="icon icon-lg icon-black">
+                    <use href="#icon-location"></use>
+                </svg>
+                <span>Black (.icon-black)</span>
+            </div>
+        </div>
+
+        <h2>Hover Effects</h2>
+        <div class="icon-sample">
+            <h4>Social Icons with Hover Effect</h4>
+            <div style="background: var(--deep-black); padding: 20px; border-radius: 8px;">
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook">
+                        <svg class="icon icon-hover icon-white">
+                            <use href="#icon-facebook"></use>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg class="icon icon-hover icon-white">
+                            <use href="#icon-instagram"></use>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg class="icon icon-hover icon-white">
+                            <use href="#icon-linkedin"></use>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Twitter">
+                        <svg class="icon icon-hover icon-white">
+                            <use href="#icon-twitter"></use>
+                        </svg>
+                    </a>
+                </div>
+                <p style="color: white; margin-top: 10px; font-size: 0.9rem;">Hover over the icons to see the effect</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Test that icons are loaded
+        setTimeout(() => {
+            const iconUses = document.querySelectorAll('use[href^="#icon-"]');
+            console.log(`SVG Icons Test: ${iconUses.length} icon references found`);
+
+            // Check if SVG sprite is loaded
+            const svgSprite = document.querySelector('svg[style*="display: none"]');
+            if (svgSprite) {
+                console.log('SVG sprite loaded successfully');
+            } else {
+                console.warn('SVG sprite not found - icons may not display correctly');
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

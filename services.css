@@ -1,0 +1,458 @@
+/* Services Page Specific Styles */
+
+/* Services Hero */
+.services-hero {
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.services-hero .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+    z-index: -1;
+}
+
+/* Dark mode support for services hero */
+@media (prefers-color-scheme: dark) {
+    .services-hero .hero-background {
+        filter: brightness(0.7) contrast(1.1);
+    }
+}
+
+.services-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 26, 0.7);
+}
+
+.services-hero .hero-content {
+    z-index: 2;
+    padding-top: 80px;
+}
+
+.services-hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.services-hero p {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Services Overview */
+.services-overview {
+    padding: 100px 0;
+    background: white;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+}
+
+.service-card {
+    background: var(--light-grey);
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    background: white;
+    border-color: var(--primary-gold);
+}
+
+.service-icon {
+    font-size: 4rem;
+    margin-bottom: 25px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: var(--deep-black);
+    margin-bottom: 20px;
+}
+
+.service-card p {
+    color: var(--warm-grey);
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 1rem;
+}
+
+.service-features {
+    list-style: none;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.service-features li {
+    color: var(--warm-grey);
+    padding: 8px 0;
+    position: relative;
+    padding-left: 25px;
+    font-size: 0.95rem;
+}
+
+.service-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary-gold);
+    font-weight: bold;
+}
+
+.service-btn {
+    display: inline-block;
+    background: var(--primary-gold);
+    color: var(--deep-black);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.service-btn:hover {
+    background: #B8941F;
+    transform: translateY(-2px);
+}
+
+/* Service Process */
+.service-process {
+    padding: 100px 0;
+    background: var(--light-grey);
+}
+
+.process-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.process-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 100%;
+    background: var(--primary-gold);
+    z-index: 1;
+}
+
+.process-step {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.process-step:nth-child(odd) {
+    flex-direction: row;
+}
+
+.process-step:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    background: var(--primary-gold);
+    color: var(--deep-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.step-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 0 40px;
+    flex: 1;
+    max-width: 300px;
+}
+
+.step-content h3 {
+    color: var(--deep-black);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.step-content p {
+    color: var(--warm-grey);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+    padding: 100px 0;
+    background: white;
+}
+
+.why-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.why-text h2 {
+    font-size: 3rem;
+    color: var(--deep-black);
+    margin-bottom: 30px;
+}
+
+.lead {
+    font-size: 1.3rem;
+    color: var(--primary-gold);
+    font-weight: 500;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.advantages-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.advantage {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.advantage-icon {
+    font-size: 2rem;
+    color: var(--primary-gold);
+    flex-shrink: 0;
+}
+
+.advantage-text h4 {
+    color: var(--deep-black);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.advantage-text p {
+    color: var(--warm-grey);
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.why-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Testimonials */
+.testimonials {
+    background: var(--light-grey);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+}
+
+.testimonial-content p {
+    font-size: 1.1rem;
+    color: var(--warm-grey);
+    line-height: 1.8;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+.testimonial-author h4 {
+    color: var(--deep-black);
+    margin-bottom: 5px;
+}
+
+.testimonial-author span {
+    color: var(--warm-grey);
+    font-size: 0.9rem;
+}
+
+/* Active Navigation */
+.nav-link.active {
+    color: var(--primary-gold);
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 30px 20px;
+    }
+
+    .process-timeline::before {
+        left: 40px;
+    }
+
+    .process-step {
+        flex-direction: row !important;
+        align-items: flex-start;
+    }
+
+    .step-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.2rem;
+        margin-left: 10px;
+        margin-right: 30px;
+    }
+
+    .step-content {
+        margin: 0;
+        max-width: none;
+    }
+
+    .why-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .why-text h2 {
+        font-size: 2.2rem;
+    }
+
+    .advantages-grid {
+        gap: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .services-hero h1 {
+        font-size: 2rem;
+    }
+
+    .service-card {
+        padding: 25px 15px;
+    }
+
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+        margin-right: 20px;
+    }
+
+    .step-content {
+        padding: 20px;
+    }
+
+    .advantage {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .testimonial-card {
+        padding: 30px 20px;
+    }
+}
+
+/* Animations */
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Service Card Hover Effects */
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Timeline Animation */
+.process-step {
+    opacity: 0;
+    animation: slideInStep 0.8s ease-out forwards;
+}
+
+.process-step:nth-child(1) { animation-delay: 0.1s; }
+.process-step:nth-child(2) { animation-delay: 0.2s; }
+.process-step:nth-child(3) { animation-delay: 0.3s; }
+.process-step:nth-child(4) { animation-delay: 0.4s; }
+.process-step:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideInStep {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

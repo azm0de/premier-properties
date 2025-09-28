@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Premier Properties</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Optimized SVG Icon Loading -->
+    <script src="icons-loader.js" defer></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Premier Properties</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="properties.html" class="nav-link">Properties</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link active contact-btn">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-background">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Contact Premier Properties</h1>
+            <p>Let's discuss your luxury real estate needs</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <!-- Contact Form -->
+                <div class="contact-form-container">
+                    <h2>Get In Touch</h2>
+                    <p>Schedule a consultation with our luxury real estate experts</p>
+
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="first-name">First Name *</label>
+                                <input type="text" id="first-name" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name *</label>
+                                <input type="text" id="last-name" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="interest">I'm Interested In *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Please Select</option>
+                                <option value="buying">Buying a Property</option>
+                                <option value="selling">Selling a Property</option>
+                                <option value="investing">Investment Consulting</option>
+                                <option value="valuation">Property Valuation</option>
+                                <option value="other">Other Services</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="budget">Budget Range</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select Budget</option>
+                                    <option value="5-10">$5M - $10M</option>
+                                    <option value="10-20">$10M - $20M</option>
+                                    <option value="20-50">$20M - $50M</option>
+                                    <option value="50+">$50M+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="timeline">Timeline</label>
+                                <select id="timeline" name="timeline">
+                                    <option value="">Select Timeline</option>
+                                    <option value="immediate">Immediate</option>
+                                    <option value="3-months">Within 3 Months</option>
+                                    <option value="6-months">Within 6 Months</option>
+                                    <option value="1-year">Within 1 Year</option>
+                                    <option value="exploring">Just Exploring</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Preferred Location(s)</label>
+                            <input type="text" id="location" name="location" placeholder="e.g., Beverly Hills, Manhattan, Malibu">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Please share details about your requirements, preferences, or any specific questions you have..."></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                <span class="checkmark"></span>
+                                Subscribe to our luxury property newsletter
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#" class="privacy-link">Privacy Policy</a> and Terms of Service *
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Schedule Consultation</button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><svg class="icon">
+                            <use href="#icon-phone"></use>
+                        </svg></div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>(555) PREMIER</p>
+                            <p>(555) 773-6437</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><svg class="icon">
+                            <use href="#icon-email"></use>
+                        </svg></div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@premierproperties.com</p>
+                            <p>luxury@premierproperties.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><svg class="icon">
+                            <use href="#icon-location"></use>
+                        </svg></div>
+                        <div class="contact-details">
+                            <h4>Office Location</h4>
+                            <p>9876 Wilshire Boulevard</p>
+                            <p>Beverly Hills, CA 90210</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon"><svg class="icon">
+                            <use href="#icon-clock"></use>
+                        </svg></div>
+                        <div class="contact-details">
+                            <h4>Office Hours</h4>
+                            <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                            <p>Saturday: 10:00 AM - 4:00 PM</p>
+                            <p>Sunday: By Appointment</p>
+                        </div>
+                    </div>
+
+                    <div class="social-contact">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><svg class="icon icon-hover">
+                            <use href="#icon-facebook"></use>
+                        </svg></a>
+                            <a href="#" aria-label="Instagram"><svg class="icon icon-hover">
+                            <use href="#icon-instagram"></use>
+                        </svg></a>
+                            <a href="#" aria-label="LinkedIn"><svg class="icon icon-hover">
+                            <use href="#icon-linkedin"></use>
+                        </svg></a>
+                            <a href="#" aria-label="Twitter"><svg class="icon icon-hover">
+                            <use href="#icon-twitter"></use>
+                        </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visit Our Office</h2>
+                <p>Located in the heart of Beverly Hills</p>
+            </div>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <p><svg class="icon icon-xl icon-primary">
+                            <use href="#icon-map"></use>
+                        </svg> Interactive map showing our Beverly Hills office location</p>
+                    <p>9876 Wilshire Boulevard, Beverly Hills, CA 90210</p>
+                    <div class="map-features">
+                        <span><svg class="icon">
+                            <use href="#icon-parking"></use>
+                        </svg> Valet Parking Available</span>
+                        <span><svg class="icon">
+                            <use href="#icon-metro"></use>
+                        </svg> Near Metro Stations</span>
+                        <span><svg class="icon">
+                            <use href="#icon-amenities"></use>
+                        </svg> Premium Amenities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about our services and process</p>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What sets Premier Properties apart from other luxury real estate firms?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Our unique combination of local market expertise, global network access, and personalized white-glove service ensures exceptional results. We provide exclusive access to off-market properties and maintain relationships with the world's most discerning buyers and sellers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with international clients?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely. We have extensive experience with international transactions and maintain partnerships with luxury real estate firms worldwide. Our team can navigate cross-border transactions, currency considerations, and legal requirements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is your typical transaction timeline?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Timeline varies based on property type and market conditions. Luxury transactions typically take 30-90 days from offer acceptance to closing. We work efficiently while ensuring every detail is properly managed for a smooth transaction.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you offer property management services?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide concierge services and can coordinate with trusted property management partners. Our network includes vetted professionals for maintenance, security, landscaping, and other property care needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do you ensure client privacy and discretion?</h3>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Client confidentiality is paramount. We have strict privacy protocols, offer off-market property searches, and can facilitate anonymous transactions when required. All team members sign comprehensive confidentiality agreements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Begin Your Journey?</h2>
+                <p>Experience the Premier Properties difference</p>
+                <div class="cta-buttons">
+                    <a href="tel:+1-555-PREMIER" class="btn btn-primary">Call Now</a>
+                    <a href="properties.html" class="btn btn-secondary">View Properties</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Premier Properties</h3>
+                    <p>Setting the standard for luxury real estate excellence since 2010.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><svg class="icon icon-hover">
+                            <use href="#icon-facebook"></use>
+                        </svg></a>
+                        <a href="#" aria-label="Instagram"><svg class="icon icon-hover">
+                            <use href="#icon-instagram"></use>
+                        </svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg class="icon icon-hover">
+                            <use href="#icon-linkedin"></use>
+                        </svg></a>
+                        <a href="#" aria-label="Twitter"><svg class="icon icon-hover">
+                            <use href="#icon-twitter"></use>
+                        </svg></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="properties.html">Properties</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Luxury Sales</a></li>
+                        <li><a href="services.html">Investment Consulting</a></li>
+                        <li><a href="services.html">Market Analysis</a></li>
+                        <li><a href="services.html">Property Management</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p><svg class="icon">
+                            <use href="#icon-email"></use>
+                        </svg> info@premierproperties.com</p>
+                    <p><svg class="icon">
+                            <use href="#icon-phone"></use>
+                        </svg> (555) PREMIER</p>
+                    <p><svg class="icon">
+                            <use href="#icon-location"></use>
+                        </svg> Beverly Hills, CA</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Premier Properties. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+</body>
+</html>
