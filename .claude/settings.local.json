@@ -18,7 +18,8 @@
       "Bash(then cat .gitignore)",
       "Bash(else echo \"No .gitignore file found\")",
       "Bash(fi)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []

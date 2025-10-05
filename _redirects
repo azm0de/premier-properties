@@ -1,0 +1,18 @@
+# Redirect rules for Cloudflare Pages
+# Format: source destination [status]
+
+# Redirect /home to /
+/home / 301
+
+# Redirect /index to /
+/index / 301
+/index.html / 301
+
+# Ensure trailing slashes are optional
+/properties/ /properties.html 200
+/about/ /about.html 200
+/services/ /services.html 200
+/contact/ /contact.html 200
+
+# SPA-style fallback (if needed in future)
+# /* /index.html 200
