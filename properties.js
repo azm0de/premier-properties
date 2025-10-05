@@ -1,6 +1,8 @@
 // Properties Page JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded - Properties page');
+    console.log('Google Maps available?', typeof google !== 'undefined');
     initializePropertiesPage();
 });
 
@@ -47,22 +49,6 @@ function setupPropertyFilters() {
     const filterSelects = document.querySelectorAll('.filter-group select');
     const searchBtn = document.querySelector('.search-btn');
     const propertyCards = document.querySelectorAll('.property-card');
-
-    // Add change event listeners to all filter selects
-    filterSelects.forEach(select => {
-        select.addEventListener('change', debounceFilter);
-    });
-
-    // Search button click
-    if (searchBtn) {
-        searchBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            filterProperties();
-        });
-    }
-
-    // Debounced filter function
-    const debounceFilter = PremierProperties.debounce(filterProperties, 300);
 
     function filterProperties() {
         const filters = getActiveFilters();
@@ -145,6 +131,19 @@ function setupPropertyFilters() {
 
         // You could add a results counter here
         console.log(`Showing ${count} properties`);
+    }
+
+    // Add change event listeners to all filter selects
+    filterSelects.forEach(select => {
+        select.addEventListener('change', filterProperties);
+    });
+
+    // Search button click
+    if (searchBtn) {
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            filterProperties();
+        });
     }
 }
 
@@ -292,206 +291,367 @@ function setupPropertyFavorites() {
     // - Favorites page
 }
 
-// Interactive Map Functionality - Leaflet with Real Markers
-function initializePropertyMap() {
-    console.log('Initializing Leaflet map...');
+// Google Maps Integration
+let googleMap = null;
+let googleMapMarkers = [];
+let googleMapInfoWindows = [];
 
-    // Wait for Leaflet to be available
-    setTimeout(() => {
-        if (typeof L !== 'undefined') {
-            createLeafletMap();
-        } else {
-            console.log('Leaflet not loaded, retrying...');
-            setTimeout(initializePropertyMap, 500);
+// Property locations with full details
+const propertyLocations = [
+    {
+        id: 'beverly-hills',
+        name: 'Beverly Hills Office',
+        address: '9200 Sunset Boulevard, Beverly Hills, CA 90069',
+        phone: '(310) 555-0100',
+        hours: {
+            weekdays: 'Mon-Fri: 9:00 AM - 6:00 PM',
+            weekends: 'Sat-Sun: 10:00 AM - 4:00 PM'
+        },
+        lat: 34.0736,
+        lng: -118.4004
+    },
+    {
+        id: 'manhattan',
+        name: 'Manhattan Office',
+        address: '350 Fifth Avenue, New York, NY 10118',
+        phone: '(212) 555-0200',
+        hours: {
+            weekdays: 'Mon-Fri: 9:00 AM - 7:00 PM',
+            weekends: 'Sat-Sun: 11:00 AM - 5:00 PM'
+        },
+        lat: 40.7829,
+        lng: -73.9654
+    },
+    {
+        id: 'malibu',
+        name: 'Malibu Office',
+        address: '23755 Malibu Road, Malibu, CA 90265',
+        phone: '(310) 555-0300',
+        hours: {
+            weekdays: 'Mon-Fri: 10:00 AM - 5:00 PM',
+            weekends: 'Sat-Sun: 11:00 AM - 3:00 PM'
+        },
+        lat: 34.0259,
+        lng: -118.7798
+    },
+    {
+        id: 'miami',
+        name: 'Miami Beach Office',
+        address: '1001 Ocean Drive, Miami Beach, FL 33139',
+        phone: '(305) 555-0400',
+        hours: {
+            weekdays: 'Mon-Fri: 9:00 AM - 6:00 PM',
+            weekends: 'Sat-Sun: 10:00 AM - 4:00 PM'
+        },
+        lat: 25.7907,
+        lng: -80.1300
+    },
+    {
+        id: 'aspen',
+        name: 'Aspen Office',
+        address: '205 S Galena Street, Aspen, CO 81611',
+        phone: '(970) 555-0500',
+        hours: {
+            weekdays: 'Mon-Fri: 9:00 AM - 5:00 PM',
+            weekends: 'Sat-Sun: 10:00 AM - 3:00 PM'
+        },
+        lat: 39.1911,
+        lng: -106.8175
+    }
+];
+
+// Load Google Maps API dynamically
+function loadGoogleMapsAPI() {
+    return new Promise((resolve, reject) => {
+        // Check if already loaded
+        if (window.google && window.google.maps) {
+            console.log('✓ Google Maps API already loaded');
+            resolve();
+            return;
         }
-    }, 100);
+
+        // Google Maps API Key
+        const apiKey = 'AIzaSyA-nQtBDrlqsQeFAQfqubQh3RSenqLEE0M';
+
+        console.log('Loading Google Maps API...');
+
+        // Create callback function name
+        window.initGoogleMapsCallback = function() {
+            console.log('✓ Google Maps API callback fired!');
+            console.log('✓ Google object available:', typeof google !== 'undefined');
+            console.log('✓ Google.maps available:', typeof google?.maps !== 'undefined');
+            delete window.initGoogleMapsCallback;
+            resolve();
+        };
+
+        // Create script element
+        const script = document.createElement('script');
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&callback=initGoogleMapsCallback`;
+        script.async = true;
+        script.defer = true;
+
+        // Error handling
+        script.onerror = function(error) {
+            console.error('✗ Failed to load Google Maps API script', error);
+            reject(new Error('Failed to load Google Maps API'));
+        };
+
+        script.onload = function() {
+            console.log('✓ Script tag loaded successfully');
+        };
+
+        // Add timeout
+        const timeout = setTimeout(() => {
+            console.error('✗ Google Maps API loading timeout (10 seconds)');
+            reject(new Error('Google Maps API loading timeout'));
+        }, 15000);
+
+        // Clear timeout on success
+        const originalResolve = resolve;
+        resolve = function() {
+            clearTimeout(timeout);
+            originalResolve();
+        };
+
+        console.log('Appending Google Maps script...');
+        document.head.appendChild(script);
+    });
 }
 
-function createLeafletMap() {
+// Create custom numbered marker SVG
+function createCustomMarker(number) {
+    const svg = `
+        <svg width="40" height="50" viewBox="0 0 40 50" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 0C8.954 0 0 8.954 0 20c0 14 20 30 20 30s20-16 20-30C40 8.954 31.046 0 20 0z" fill="#ef4444"/>
+            <circle cx="20" cy="20" r="12" fill="white"/>
+            <text x="20" y="26" font-size="14" font-weight="bold" text-anchor="middle" fill="#ef4444" font-family="Arial, sans-serif">${number}</text>
+        </svg>
+    `;
+    return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+}
+
+// Create info window content
+function createInfoWindowContent(location) {
+    return `
+        <div style="font-family: 'Montserrat', sans-serif; padding: 10px; min-width: 250px;">
+            <h3 style="margin: 0 0 10px 0; color: #1a1a1a; font-size: 1.1rem;">${location.name}</h3>
+            <div style="margin-bottom: 8px; color: #666;">
+                <strong style="color: #D4AF37;">Address:</strong><br/>
+                ${location.address}
+            </div>
+            <div style="margin-bottom: 8px; color: #666;">
+                <strong style="color: #D4AF37;">Phone:</strong> ${location.phone}
+            </div>
+            <div style="margin-bottom: 12px; color: #666;">
+                <strong style="color: #D4AF37;">Hours:</strong><br/>
+                ${location.hours.weekdays}<br/>
+                ${location.hours.weekends}
+            </div>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}"
+               target="_blank"
+               style="display: inline-block; background: #D4AF37; color: white; padding: 8px 16px;
+                      text-decoration: none; border-radius: 5px; font-weight: 600;
+                      transition: background 0.3s ease;"
+               onmouseover="this.style.background='#c5a028'"
+               onmouseout="this.style.background='#D4AF37'">
+                Get Directions
+            </a>
+        </div>
+    `;
+}
+
+// Close all info windows
+function closeAllInfoWindows() {
+    googleMapInfoWindows.forEach(infoWindow => {
+        infoWindow.close();
+    });
+}
+
+// Initialize Google Maps
+function initializePropertyMap() {
+    console.log('=== INITIALIZING GOOGLE MAPS ===');
+
+    const mapContainer = document.getElementById('properties-map');
+    if (!mapContainer) {
+        console.error('✗ Map container not found');
+        return;
+    }
+    console.log('✓ Map container found:', mapContainer);
+
+    // Load Google Maps API
+    console.log('Starting API load...');
+    loadGoogleMapsAPI()
+        .then(() => {
+            console.log('✓ API loaded successfully, creating map...');
+            createGoogleMap();
+        })
+        .catch(error => {
+            console.error('✗ Error loading Google Maps:', error);
+            showMapError(mapContainer);
+        });
+}
+
+// Create Google Map with markers
+function createGoogleMap() {
+    console.log('=== CREATING GOOGLE MAP ===');
+
     const mapContainer = document.getElementById('properties-map');
     const locationItems = document.querySelectorAll('.location-item');
 
-    if (!mapContainer) {
-        console.log('Map container not found');
-        return;
-    }
-
-    // Clear any existing content
-    mapContainer.innerHTML = '';
-
-    // Property locations with exact coordinates
-    const propertyLocations = [
-        {
-            id: 'beverly-hills',
-            name: 'Beverly Hills, CA',
-            properties: 3,
-            lat: 34.0736,
-            lng: -118.4004
-        },
-        {
-            id: 'malibu',
-            name: 'Malibu, CA',
-            properties: 1,
-            lat: 34.0259,
-            lng: -118.7798
-        },
-        {
-            id: 'aspen',
-            name: 'Aspen, CO',
-            properties: 1,
-            lat: 39.1911,
-            lng: -106.8175
-        },
-        {
-            id: 'manhattan',
-            name: 'Manhattan, NY',
-            properties: 1,
-            lat: 40.7829,
-            lng: -73.9654
-        },
-        {
-            id: 'miami',
-            name: 'Miami Beach, FL',
-            properties: 1,
-            lat: 25.7907,
-            lng: -80.1300
-        }
-    ];
+    console.log('Map container:', mapContainer);
+    console.log('Container dimensions:', mapContainer?.offsetWidth, 'x', mapContainer?.offsetHeight);
+    console.log('Location items:', locationItems.length);
 
     try {
+        console.log('Checking google.maps...');
+        if (typeof google === 'undefined') {
+            throw new Error('Google is not defined');
+        }
+        if (typeof google.maps === 'undefined') {
+            throw new Error('Google.maps is not defined');
+        }
+        console.log('✓ Google Maps API is available');
+
         // Create map
-        const map = L.map(mapContainer, {
-            center: [39.8283, -98.5795],
+        console.log('Creating map instance...');
+        googleMap = new google.maps.Map(mapContainer, {
             zoom: 4,
-            zoomControl: true,
-            scrollWheelZoom: true
+            center: { lat: 39.8283, lng: -98.5795 }, // Center of USA
+            mapTypeControl: true,
+            streetViewControl: true,
+            fullscreenControl: true,
+            styles: [
+                {
+                    featureType: 'poi',
+                    elementType: 'labels',
+                    stylers: [{ visibility: 'off' }]
+                }
+            ]
         });
+        console.log('✓ Map instance created:', googleMap);
 
-        // Add tile layer with error handling
-        const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-            maxZoom: 18
-        });
+        // Create bounds for auto-centering
+        const bounds = new google.maps.LatLngBounds();
 
-        tileLayer.on('tileerror', function() {
-            console.log('Tile loading error, trying backup...');
-            // Try backup tile server
-            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-                attribution: '© CARTO'
-            }).addTo(map);
-        });
+        // Clear previous markers and info windows
+        googleMapMarkers = [];
+        googleMapInfoWindows = [];
 
-        tileLayer.addTo(map);
+        // Add markers
+        console.log('Adding markers for', propertyLocations.length, 'locations...');
+        propertyLocations.forEach((location, index) => {
+            const position = { lat: location.lat, lng: location.lng };
+            console.log(`Creating marker ${index + 1} for ${location.name} at`, position);
 
-        // Create custom icon
-        const customIcon = L.divIcon({
-            className: 'custom-marker',
-            html: `<div style="
-                width: 20px;
-                height: 20px;
-                background: #D4AF37;
-                border: 4px solid white;
-                border-radius: 50%;
-                box-shadow: 0 2px 10px rgba(212, 175, 55, 0.6);
-                position: relative;
-            "></div>`,
-            iconSize: [28, 28],
-            iconAnchor: [14, 14]
-        });
+            // Create marker with custom icon
+            const marker = new google.maps.Marker({
+                position: position,
+                map: googleMap,
+                title: location.name,
+                icon: {
+                    url: createCustomMarker(index + 1),
+                    scaledSize: new google.maps.Size(40, 50),
+                    anchor: new google.maps.Point(20, 50)
+                },
+                animation: google.maps.Animation.DROP
+            });
 
-        // Add markers with real coordinates
-        const markers = [];
-        propertyLocations.forEach(location => {
-            const marker = L.marker([location.lat, location.lng], {
-                icon: customIcon
-            }).addTo(map);
+            // Create info window
+            const infoWindow = new google.maps.InfoWindow({
+                content: createInfoWindowContent(location)
+            });
 
-            // Create popup
-            const popupContent = `
-                <div style="text-align: center; padding: 8px; font-family: 'Montserrat', sans-serif; min-width: 150px;">
-                    <h4 style="margin: 0 0 8px 0; color: #1a1a1a; font-size: 1rem;">${location.name}</h4>
-                    <p style="margin: 0 0 8px 0; color: #D4AF37; font-weight: 600; font-size: 0.9rem;">${location.properties} Luxury Properties</p>
-                    <button onclick="filterPropertiesByLocation('${location.id}')" style="
-                        background: #D4AF37;
-                        color: #1a1a1a;
-                        border: none;
-                        padding: 6px 12px;
-                        border-radius: 15px;
-                        font-weight: 600;
-                        cursor: pointer;
-                        font-size: 0.8rem;
-                        font-family: inherit;
-                    ">View Properties</button>
-                </div>
-            `;
-
-            marker.bindPopup(popupContent);
-
-            // Add click event
-            marker.on('click', function() {
+            // Add click listener to marker
+            marker.addListener('click', () => {
+                closeAllInfoWindows();
+                infoWindow.open(googleMap, marker);
                 highlightLocation(location.id, locationItems);
             });
 
-            // Store location ID
-            marker.locationId = location.id;
-            markers.push(marker);
+            // Store marker and info window
+            googleMapMarkers.push(marker);
+            googleMapInfoWindows.push(infoWindow);
+
+            // Extend bounds
+            bounds.extend(position);
         });
 
+        console.log('✓ Created', googleMapMarkers.length, 'markers');
+
+        // Auto-center map to fit all markers
+        console.log('Fitting bounds to show all markers...');
+        googleMap.fitBounds(bounds);
+        console.log('✓ Bounds fitted');
+
         // Setup legend interactions
-        locationItems.forEach(item => {
+        locationItems.forEach((item, index) => {
             item.addEventListener('click', function() {
                 const locationId = this.dataset.location;
+                const locationIndex = propertyLocations.findIndex(loc => loc.id === locationId);
 
-                // Find corresponding marker
-                const marker = markers.find(m => m.locationId === locationId);
-                if (marker) {
-                    // Pan to marker and open popup
-                    map.setView([marker.getLatLng().lat, marker.getLatLng().lng], 8);
-                    marker.openPopup();
+                if (locationIndex !== -1) {
+                    const location = propertyLocations[locationIndex];
+                    const marker = googleMapMarkers[locationIndex];
+                    const infoWindow = googleMapInfoWindows[locationIndex];
+
+                    // Pan to location
+                    googleMap.setCenter({ lat: location.lat, lng: location.lng });
+                    googleMap.setZoom(12);
+
+                    // Close all and open selected
+                    closeAllInfoWindows();
+                    infoWindow.open(googleMap, marker);
+
+                    // Add bounce animation
+                    marker.setAnimation(google.maps.Animation.BOUNCE);
+                    setTimeout(() => marker.setAnimation(null), 2100);
+
+                    highlightLocation(locationId, locationItems);
                 }
-
-                // Highlight legend item
-                highlightLocation(locationId, locationItems);
-
-                // Filter properties
-                filterPropertiesByLocation(locationId);
             });
         });
 
-        // Store map globally
-        window.propertyMap = {
-            map: map,
-            markers: markers,
-            locations: propertyLocations
-        };
-
-        console.log('Leaflet map with real moving markers created successfully!');
+        console.log('=== ✓ GOOGLE MAP CREATED SUCCESSFULLY ===');
+        console.log('Total markers:', googleMapMarkers.length);
+        console.log('Map object:', googleMap);
 
     } catch (error) {
-        console.error('Error creating map:', error);
-        createFallbackMap(mapContainer, locationItems);
+        console.error('=== ✗ ERROR CREATING GOOGLE MAP ===');
+        console.error('Error details:', error);
+        console.error('Stack trace:', error.stack);
+        showMapError(mapContainer);
     }
 }
 
-function createFallbackMap(mapContainer, locationItems) {
-    console.log('Creating fallback map...');
-
+// Show error message
+function showMapError(mapContainer) {
     mapContainer.innerHTML = `
         <div style="
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #1a237e 0%, #3949ab 50%, #1a237e 100%);
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             color: white;
             text-align: center;
             font-family: 'Montserrat', sans-serif;
+            padding: 40px 20px;
         ">
-            <div>
-                <h3 style="margin: 0 0 20px 0; color: #D4AF37;">🗺️ Premier Properties Locations</h3>
-                <p style="margin: 0; opacity: 0.8;">Interactive map will load when available</p>
-                <p style="margin: 10px 0 0 0; font-size: 0.9rem; opacity: 0.6;">Use the location list below to filter properties</p>
+            <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px); max-width: 500px;">
+                <svg style="width: 64px; height: 64px; margin-bottom: 20px;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                </svg>
+                <h3 style="margin: 0 0 15px 0; font-size: 1.5rem;">Unable to Load Map</h3>
+                <p style="margin: 0 0 20px 0; opacity: 0.9;">
+                    The Google Maps API could not be loaded. Please check your API key configuration in the .env file.
+                </p>
+                <p style="margin: 0; font-size: 0.9rem; opacity: 0.7;">
+                    Error: Missing or invalid API key<br/>
+                    See console for more details
+                </p>
             </div>
         </div>
     `;
@@ -524,5 +684,17 @@ window.PropertiesPage = {
     openPropertyDetails,
     scheduleTour,
     initializePropertyMap,
-    filterPropertiesByLocation
+    filterPropertiesByLocation,
+    debugMap: function() {
+        console.log('=== MAP DEBUG INFO ===');
+        console.log('Google Maps available:', typeof google !== 'undefined' && !!google.maps);
+        console.log('Map container exists:', !!document.getElementById('properties-map'));
+        console.log('Map container dimensions:',
+            document.getElementById('properties-map')?.getBoundingClientRect());
+        console.log('Location items count:',
+            document.querySelectorAll('.location-item').length);
+        console.log('Markers count:', googleMapMarkers.length);
+        console.log('Attempting to reinitialize map...');
+        initializePropertyMap();
+    }
 };

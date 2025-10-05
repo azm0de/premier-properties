@@ -1,5 +1,177 @@
 /* Properties Page Specific Styles */
 
+/* Map Section */
+.map-section {
+    background: var(--light-grey);
+    padding: 100px 0;
+}
+
+.map-section .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.map-section .section-header h2 {
+    font-size: 3rem;
+    color: var(--deep-black) !important;
+    margin-bottom: 20px;
+}
+
+.map-section .section-header p {
+    font-size: 1.2rem;
+    color: var(--warm-grey) !important;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Override any dark mode or conflicting styles */
+.map-section h2,
+.map-section .section-header h2,
+body.dark-mode .map-section .section-header h2,
+[data-theme="dark"] .map-section .section-header h2 {
+    color: var(--deep-black) !important;
+}
+
+.map-section p,
+.map-section .section-header p,
+body.dark-mode .map-section .section-header p,
+[data-theme="dark"] .map-section .section-header p {
+    color: var(--warm-grey) !important;
+}
+
+.map-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+    align-items: start;
+}
+
+#properties-map {
+    width: 100% !important;
+    height: 500px !important;
+    min-height: 500px;
+    background: linear-gradient(135deg, #1a237e 0%, #3949ab 50%, #1a237e 100%);
+    border-radius: 15px;
+    border: 3px solid var(--primary-gold);
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+/* Ensure Google Maps displays properly */
+#properties-map .gm-style,
+#properties-map > div {
+    height: 100% !important;
+    width: 100% !important;
+    border-radius: 12px;
+}
+
+/* Legacy Leaflet support (if needed) */
+#properties-map .leaflet-container {
+    height: 100% !important;
+    width: 100% !important;
+    border-radius: 12px;
+}
+
+.map-legend {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--primary-gold);
+}
+
+.map-legend h4 {
+    font-size: 1.5rem;
+    color: var(--deep-black);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.location-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.location-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 10px;
+    background: var(--light-grey);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.location-item:hover {
+    background: var(--primary-gold);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.location-item:hover span {
+    color: var(--deep-black);
+}
+
+.location-item.active {
+    background: var(--primary-gold);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.location-item.active span {
+    color: var(--deep-black);
+}
+
+.location-item span:first-of-type {
+    flex: 1;
+    font-weight: 500;
+    color: var(--deep-black);
+}
+
+.property-count {
+    font-size: 0.85rem;
+    color: var(--warm-grey);
+    font-weight: 400;
+}
+
+.location-item:hover .property-count,
+.location-item.active .property-count {
+    color: var(--deep-black);
+    opacity: 0.8;
+}
+
+.location-item .icon {
+    color: var(--primary-gold);
+    flex-shrink: 0;
+}
+
+.location-item:hover .icon,
+.location-item.active .icon {
+    color: var(--deep-black);
+}
+
+/* Responsive design for map section */
+@media (max-width: 768px) {
+    .map-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .map-legend {
+        order: -1;
+    }
+
+    #properties-map {
+        min-height: 400px;
+    }
+
+    .map-section .section-header h2 {
+        font-size: 2.2rem;
+    }
+}
+
 /* Properties Hero */
 .properties-hero {
     height: 60vh;

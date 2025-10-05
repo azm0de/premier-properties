@@ -5,7 +5,20 @@
       "WebFetch(domain:www.designrush.com)",
       "Bash(start properties.html)",
       "Bash(start index.html)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(gh repo create:*)",
+      "Bash(git push:*)",
+      "Bash(git remote add:*)",
+      "Bash(python3:*)",
+      "Bash(start about.html)",
+      "Bash(start contact.html)",
+      "Bash(start map-debug.html)",
+      "Bash(start services.html)",
+      "Bash(if [ -f .gitignore ])",
+      "Bash(then cat .gitignore)",
+      "Bash(else echo \"No .gitignore file found\")",
+      "Bash(fi)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

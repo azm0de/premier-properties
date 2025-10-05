@@ -59,6 +59,14 @@
     background: white;
 }
 
+.services-overview .section-header h2 {
+    color: var(--deep-black) !important;
+}
+
+.services-overview .section-header p {
+    color: var(--warm-grey) !important;
+}
+
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -114,11 +122,15 @@
 }
 
 .service-features li::before {
-    content: '✓';
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--primary-gold);
-    font-weight: bold;
+    width: 1rem;
+    height: 1rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .service-btn {
@@ -141,6 +153,14 @@
 .service-process {
     padding: 100px 0;
     background: var(--light-grey);
+}
+
+.service-process .section-header h2 {
+    color: var(--deep-black) !important;
+}
+
+.service-process .section-header p {
+    color: var(--warm-grey) !important;
 }
 
 .process-timeline {

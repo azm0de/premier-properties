@@ -11,9 +11,7 @@
     <!-- Optimized SVG Icon Loading -->
     <script src="icons-loader.js" defer></script>
 
-    <!-- Leaflet CSS and JavaScript for reliable map -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Google Maps will be loaded dynamically via JavaScript -->
 </head>
 <body>
     <!-- Navigation -->
@@ -121,8 +119,18 @@
             <div class="section-header">
                 <h2>Available Properties</h2>
                 <div class="view-options">
-                    <button class="view-btn active" data-view="grid">⊞ Grid</button>
-                    <button class="view-btn" data-view="list">☰ List</button>
+                    <button class="view-btn active" data-view="grid">
+                        <svg class="icon icon-sm">
+                            <use href="#icon-grid"></use>
+                        </svg>
+                        Grid
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <svg class="icon icon-sm">
+                            <use href="#icon-list"></use>
+                        </svg>
+                        List
+                    </button>
                 </div>
             </div>
 
@@ -330,7 +338,7 @@
                 <!-- Property 6 -->
                 <div class="property-card" data-location="beverly-hills" data-price="32500000" data-bedrooms="7">
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beverly Hills Mansion">
+                        <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beverly Hills Mansion">
                         <div class="property-badge">Luxury</div>
                         <div class="property-status">For Sale</div>
                         <div class="property-overlay">

@@ -100,9 +100,15 @@
                         <p class="property-location">Beverly Hills, CA</p>
                         <p class="property-price">$12,500,000</p>
                         <div class="property-features">
-                            <span>6 Beds</span>
-                            <span>8 Baths</span>
-                            <span>8,500 sqft</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bed"></use>
+                                </svg> 6 Beds</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bath"></use>
+                                </svg> 8 Baths</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-area"></use>
+                                </svg> 8,500 sqft</span>
                         </div>
                     </div>
                 </div>
@@ -120,9 +126,15 @@
                         <p class="property-location">Manhattan, NY</p>
                         <p class="property-price">$18,750,000</p>
                         <div class="property-features">
-                            <span>4 Beds</span>
-                            <span>5 Baths</span>
-                            <span>6,200 sqft</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bed"></use>
+                                </svg> 4 Beds</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bath"></use>
+                                </svg> 5 Baths</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-area"></use>
+                                </svg> 6,200 sqft</span>
                         </div>
                     </div>
                 </div>
@@ -140,9 +152,15 @@
                         <p class="property-location">Malibu, CA</p>
                         <p class="property-price">$24,900,000</p>
                         <div class="property-features">
-                            <span>8 Beds</span>
-                            <span>10 Baths</span>
-                            <span>12,000 sqft</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bed"></use>
+                                </svg> 8 Beds</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-bath"></use>
+                                </svg> 10 Baths</span>
+                            <span><svg class="icon">
+                                    <use href="#icon-area"></use>
+                                </svg> 12,000 sqft</span>
                         </div>
                     </div>
                 </div>
@@ -317,12 +335,12 @@
         // Monitor icon loading performance
         window.addEventListener('load', function() {
             const iconCount = document.querySelectorAll('svg.icon').length;
-            console.log(`✓ ${iconCount} SVG icons initialized`);
+            console.log(`[✓] ${iconCount} SVG icons initialized`);
 
             // Check if all icons have proper accessibility
             const iconsWithoutAria = document.querySelectorAll('svg.icon:not([aria-label]):not([aria-hidden])');
             if (iconsWithoutAria.length > 0) {
-                console.warn(`⚠ ${iconsWithoutAria.length} icons missing accessibility attributes`);
+                console.warn(`[⚠] ${iconsWithoutAria.length} icons missing accessibility attributes`);
             }
         });
     </script>

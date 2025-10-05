@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     setupScrollEffects();
     setupAnimations();
+    setupDarkModeDetection();
 });
 
 // Initialize all components
@@ -291,9 +292,366 @@ if ('IntersectionObserver' in window) {
     lazyImages.forEach(img => imageObserver.observe(img));
 }
 
+// Dark Mode Detection and Support
+function setupDarkModeDetection() {
+    // Function to apply dark mode
+    function applyDarkMode(isDark) {
+        const body = document.body;
+        if (isDark) {
+            body.classList.add('dark-mode');
+            body.setAttribute('data-theme', 'dark');
+        } else {
+            body.classList.remove('dark-mode');
+            body.removeAttribute('data-theme');
+        }
+    }
+
+    // Check for system preference
+    function checkSystemPreference() {
+        return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+
+    // Detect dark mode extensions by checking computed styles
+    function detectDarkModeExtension() {
+        // Create a test element to check if it's being modified by extensions
+        const testDiv = document.createElement('div');
+        testDiv.style.cssText = 'position: absolute; visibility: hidden; background-color: white; color: black;';
+        document.body.appendChild(testDiv);
+
+        const computedStyle = window.getComputedStyle(testDiv);
+        const bgColor = computedStyle.backgroundColor;
+        const textColor = computedStyle.color;
+
+        document.body.removeChild(testDiv);
+
+        // Check if colors have been inverted (common sign of dark mode extension)
+        const bgRGB = bgColor.match(/\d+/g);
+        const textRGB = textColor.match(/\d+/g);
+
+        if (bgRGB && textRGB) {
+            const bgLuminance = (parseInt(bgRGB[0]) + parseInt(bgRGB[1]) + parseInt(bgRGB[2])) / 3;
+            const textLuminance = (parseInt(textRGB[0]) + parseInt(textRGB[1]) + parseInt(textRGB[2])) / 3;
+
+            // Dark background with light text indicates dark mode extension
+            return bgLuminance < 128 && textLuminance > 128;
+        }
+
+        return false;
+    }
+
+    // Check for common dark mode extension classes/attributes
+    function detectExtensionClasses() {
+        const commonDarkModeSelectors = [
+            'html[data-darkreader-mode]',
+            'html[data-night-mode]',
+            'body.night-mode',
+            'body.dark-theme',
+            'html.dark',
+            '[data-theme="dark"]'
+        ];
+
+        return commonDarkModeSelectors.some(selector =>
+            document.querySelector(selector) !== null
+        );
+    }
+
+    // Main detection function
+    function detectDarkMode() {
+        const systemDark = checkSystemPreference();
+        const extensionDark = detectDarkModeExtension() || detectExtensionClasses();
+
+        return systemDark || extensionDark;
+    }
+
+    // Initial dark mode detection and application
+    function initializeDarkMode() {
+        const isDarkMode = detectDarkMode();
+        applyDarkMode(isDarkMode);
+
+        // Also check for specific extension mutations
+        checkForExtensionChanges();
+    }
+
+    // Monitor for changes in dark mode preference
+    if (window.matchMedia) {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', function(e) {
+            applyDarkMode(e.matches || detectDarkModeExtension() || detectExtensionClasses());
+        });
+    }
+
+    // Monitor for extension changes using MutationObserver
+    function checkForExtensionChanges() {
+        const observer = new MutationObserver(function(mutations) {
+            let shouldCheck = false;
+
+            mutations.forEach(function(mutation) {
+                // Check for attribute changes that might indicate extension activity
+                if (mutation.type === 'attributes' &&
+                    (mutation.attributeName === 'style' ||
+                     mutation.attributeName === 'class' ||
+                     mutation.attributeName.startsWith('data-'))) {
+                    shouldCheck = true;
+                }
+
+                // Check for style modifications
+                if (mutation.type === 'childList') {
+                    mutation.addedNodes.forEach(function(node) {
+                        if (node.nodeType === 1 &&
+                            (node.tagName === 'STYLE' || node.tagName === 'LINK')) {
+                            shouldCheck = true;
+                        }
+                    });
+                }
+            });
+
+            if (shouldCheck) {
+                setTimeout(() => {
+                    const isDarkMode = detectDarkMode();
+                    applyDarkMode(isDarkMode);
+                }, 100); // Small delay to allow extension to finish applying changes
+            }
+        });
+
+        // Observe changes to html, head, and body
+        observer.observe(document.documentElement, {
+            attributes: true,
+            childList: true,
+            subtree: true,
+            attributeFilter: ['style', 'class', 'data-darkreader-mode', 'data-night-mode', 'data-theme']
+        });
+
+        observer.observe(document.head, {
+            childList: true,
+            subtree: true
+        });
+    }
+
+    // Periodic check for extension changes (backup method)
+    setInterval(() => {
+        const currentMode = document.body.classList.contains('dark-mode');
+        const detectedMode = detectDarkMode();
+
+        if (currentMode !== detectedMode) {
+            applyDarkMode(detectedMode);
+        }
+    }, 2000); // Check every 2 seconds
+
+    // Initialize dark mode detection
+    initializeDarkMode();
+
+    // Add aggressive Dark Reader override
+    forceDarkReaderBackgroundFix();
+}
+
+// Aggressive Dark Reader background image fix
+function forceDarkReaderBackgroundFix() {
+    const backgroundImageUrl = 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80';
+
+    // Function to detect Dark Reader
+    function isDarkReaderActive() {
+        return document.querySelector('html[data-darkreader-mode]') !== null ||
+               document.querySelector('html[data-darkreader-scheme]') !== null ||
+               document.documentElement.hasAttribute('data-darkreader-mode') ||
+               document.documentElement.hasAttribute('data-darkreader-scheme');
+    }
+
+    // Function to force background image
+    function forceBackgroundImage() {
+        const heroBackground = document.querySelector('.hero-background');
+        const heroBefore = document.querySelector('.hero-background::before');
+
+        if (heroBackground) {
+            // Add inline styles that are harder for Dark Reader to override
+            const styleText = `
+                .hero-background::before {
+                    background: url('${backgroundImageUrl}') center/cover !important;
+                    background-image: url('${backgroundImageUrl}') !important;
+                    background-size: cover !important;
+                    background-position: center !important;
+                    background-repeat: no-repeat !important;
+                    filter: brightness(0.6) contrast(1.2) !important;
+                    opacity: 1 !important;
+                    display: block !important;
+                    content: "" !important;
+                    position: absolute !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    z-index: -1 !important;
+                    visibility: visible !important;
+                }
+            `;
+
+            // Create or update a style element with high specificity
+            let forceStyle = document.getElementById('force-hero-bg');
+            if (!forceStyle) {
+                forceStyle = document.createElement('style');
+                forceStyle.id = 'force-hero-bg';
+                document.head.appendChild(forceStyle);
+            }
+            forceStyle.textContent = styleText;
+
+            // Check if main background is working
+            const computedStyle = window.getComputedStyle(heroBackground, '::before');
+            const currentBg = computedStyle.backgroundImage;
+            const isBackgroundMissing = currentBg === 'none' || !currentBg.includes('unsplash');
+
+            if (isBackgroundMissing) {
+                // Mark as failed to trigger CSS backup
+                heroBackground.setAttribute('data-bg-failed', 'true');
+
+                // Create a JavaScript backup background element
+                let backupBg = document.getElementById('backup-hero-bg');
+                if (!backupBg) {
+                    backupBg = document.createElement('div');
+                    backupBg.id = 'backup-hero-bg';
+                    backupBg.style.cssText = `
+                        position: absolute !important;
+                        top: 0 !important;
+                        left: 0 !important;
+                        width: 100% !important;
+                        height: 100% !important;
+                        background: url('${backgroundImageUrl}') center/cover !important;
+                        background-image: url('${backgroundImageUrl}') !important;
+                        background-size: cover !important;
+                        background-position: center !important;
+                        background-repeat: no-repeat !important;
+                        filter: brightness(0.6) contrast(1.2) !important;
+                        z-index: -1 !important;
+                        opacity: 1 !important;
+                        pointer-events: none !important;
+                        display: block !important;
+                    `;
+                    heroBackground.insertBefore(backupBg, heroBackground.firstChild);
+                }
+
+                // Force backup to be visible
+                backupBg.style.opacity = '1';
+                backupBg.style.zIndex = '-1';
+                backupBg.style.display = 'block';
+            } else {
+                // Background is working, remove failed attribute
+                heroBackground.removeAttribute('data-bg-failed');
+            }
+
+            // Create an img element as ultimate fallback
+            let imgBackup = document.getElementById('img-hero-bg');
+            if (!imgBackup && isBackgroundMissing) {
+                imgBackup = document.createElement('img');
+                imgBackup.id = 'img-hero-bg';
+                imgBackup.src = backgroundImageUrl;
+                imgBackup.style.cssText = `
+                    position: absolute !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    object-fit: cover !important;
+                    filter: brightness(0.6) contrast(1.2) !important;
+                    z-index: -2 !important;
+                    opacity: 1 !important;
+                    pointer-events: none !important;
+                `;
+                heroBackground.appendChild(imgBackup);
+            }
+        }
+    }
+
+    // Check immediately and after delays (Dark Reader sometimes loads slowly)
+    if (isDarkReaderActive()) {
+        forceBackgroundImage();
+    }
+
+    // Check again after short delays
+    setTimeout(() => {
+        if (isDarkReaderActive()) {
+            forceBackgroundImage();
+        }
+    }, 500);
+
+    setTimeout(() => {
+        if (isDarkReaderActive()) {
+            forceBackgroundImage();
+        }
+    }, 1500);
+
+    setTimeout(() => {
+        if (isDarkReaderActive()) {
+            forceBackgroundImage();
+        }
+    }, 3000);
+
+    // Monitor for Dark Reader activation
+    const darkReaderObserver = new MutationObserver(function(mutations) {
+        let shouldFix = false;
+
+        mutations.forEach(function(mutation) {
+            // Check for Dark Reader attributes
+            if (mutation.type === 'attributes' &&
+                (mutation.attributeName === 'data-darkreader-mode' ||
+                 mutation.attributeName === 'data-darkreader-scheme' ||
+                 mutation.target.hasAttribute('data-darkreader-mode') ||
+                 mutation.target.hasAttribute('data-darkreader-scheme'))) {
+                shouldFix = true;
+            }
+
+            // Check for style modifications that might remove background
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(function(node) {
+                    if (node.nodeType === 1 &&
+                        (node.tagName === 'STYLE' || node.tagName === 'LINK')) {
+                        shouldFix = true;
+                    }
+                });
+            }
+        });
+
+        if (shouldFix && isDarkReaderActive()) {
+            setTimeout(forceBackgroundImage, 50);
+        }
+    });
+
+    // Observe the entire document for Dark Reader changes
+    darkReaderObserver.observe(document.documentElement, {
+        attributes: true,
+        childList: true,
+        subtree: true,
+        attributeFilter: ['data-darkreader-mode', 'data-darkreader-scheme', 'style', 'class']
+    });
+
+    darkReaderObserver.observe(document.head, {
+        childList: true,
+        subtree: true
+    });
+
+    // Aggressive periodic check specifically for Dark Reader
+    setInterval(() => {
+        if (isDarkReaderActive()) {
+            forceBackgroundImage();
+        }
+    }, 1000); // Check every second when Dark Reader is active
+
+    // Also check when page becomes visible (Dark Reader sometimes applies changes when tab becomes active)
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden && isDarkReaderActive()) {
+            setTimeout(forceBackgroundImage, 100);
+        }
+    });
+
+    // Force fix on window focus
+    window.addEventListener('focus', function() {
+        if (isDarkReaderActive()) {
+            setTimeout(forceBackgroundImage, 100);
+        }
+    });
+}
+
 // Export functions for use in other files
 window.PremierProperties = {
     toggleMobileMenu,
     animateCounter,
-    debounce
+    debounce,
+    setupDarkModeDetection
 };

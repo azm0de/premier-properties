@@ -179,6 +179,14 @@
     background: var(--light-grey);
 }
 
+.team-section .section-header h2 {
+    color: var(--deep-black) !important;
+}
+
+.team-section .section-header p {
+    color: var(--warm-grey) !important;
+}
+
 .team-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -292,6 +300,14 @@
 .awards-section {
     padding: 100px 0;
     background: white;
+}
+
+.awards-section .section-header h2 {
+    color: var(--deep-black) !important;
+}
+
+.awards-section .section-header p {
+    color: var(--warm-grey) !important;
 }
 
 .awards-grid {

@@ -304,15 +304,209 @@ h1, h2, h3, h4, h5, h6 {
     z-index: -1;
 }
 
-/* Dark mode improvements */
+/* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
+    :root {
+        --body-bg: #1a1a1a;
+        --text-color: #ffffff;
+        --section-bg: #2c2c2c;
+        --card-bg: #333333;
+        --border-color: #444444;
+    }
+
+    body {
+        background-color: var(--body-bg);
+        color: var(--text-color);
+    }
+
     .hero-background::before {
-        filter: brightness(0.7) contrast(1.1);
+        background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover !important;
+        filter: brightness(0.6) contrast(1.2);
+        opacity: 1 !important;
+        display: block !important;
     }
 
     .hero-overlay {
-        background: rgba(0, 0, 0, 0.6) !important;
+        background: rgba(0, 0, 0, 0.4) !important;
     }
+
+    .section-header h2 {
+        color: var(--text-color);
+    }
+
+    .section-header p {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .featured-properties {
+        background: var(--section-bg);
+    }
+
+    .property-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+    }
+
+    .property-info h3 {
+        color: var(--text-color);
+    }
+
+    .property-location {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .property-features span {
+        background: var(--border-color);
+        color: var(--text-color);
+    }
+
+    .services-preview {
+        background: var(--section-bg);
+    }
+
+    .services-text h2 {
+        color: var(--text-color);
+    }
+
+    .services-text p {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .services-list li {
+        color: var(--text-color);
+        border-bottom-color: var(--border-color);
+    }
+
+    .testimonials {
+        background: var(--body-bg);
+    }
+
+    .testimonial-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+    }
+
+    .testimonial-content p {
+        color: rgba(255, 255, 255, 0.8);
+    }
+
+    .testimonial-author h4 {
+        color: var(--text-color);
+    }
+
+    .testimonial-author span {
+        color: rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Dark mode extension support */
+[data-theme="dark"],
+body.dark-mode {
+    --body-bg: #1a1a1a;
+    --text-color: #ffffff;
+    --section-bg: #2c2c2c;
+    --card-bg: #333333;
+    --border-color: #444444;
+
+    background-color: var(--body-bg);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .hero-background::before,
+body.dark-mode .hero-background::before {
+    background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover !important;
+    filter: brightness(0.6) contrast(1.2);
+    opacity: 1 !important;
+    display: block !important;
+}
+
+[data-theme="dark"] .hero-overlay,
+body.dark-mode .hero-overlay {
+    background: rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .section-header h2,
+body.dark-mode .section-header h2 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .section-header p,
+body.dark-mode .section-header p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .featured-properties,
+body.dark-mode .featured-properties {
+    background: var(--section-bg);
+}
+
+[data-theme="dark"] .property-card,
+body.dark-mode .property-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .property-info h3,
+body.dark-mode .property-info h3 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .property-location,
+body.dark-mode .property-location {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .property-features span,
+body.dark-mode .property-features span {
+    background: var(--border-color);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .services-preview,
+body.dark-mode .services-preview {
+    background: var(--section-bg);
+}
+
+[data-theme="dark"] .services-text h2,
+body.dark-mode .services-text h2 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .services-text p,
+body.dark-mode .services-text p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .services-list li,
+body.dark-mode .services-list li {
+    color: var(--text-color);
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .testimonials,
+body.dark-mode .testimonials {
+    background: var(--body-bg);
+}
+
+[data-theme="dark"] .testimonial-card,
+body.dark-mode .testimonial-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .testimonial-content p,
+body.dark-mode .testimonial-content p {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .testimonial-author h4,
+body.dark-mode .testimonial-author h4 {
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .testimonial-author span,
+body.dark-mode .testimonial-author span {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .hero-overlay {
@@ -324,11 +518,115 @@ h1, h2, h3, h4, h5, h6 {
     background: rgba(26, 26, 26, 0.6);
 }
 
+/* Additional dark mode detection fallbacks and extension overrides */
+@media (prefers-color-scheme: dark) {
+    .hero-overlay {
+        background: rgba(0, 0, 0, 0.4) !important;
+    }
+}
+
+/* Force background image to show in any dark mode scenario */
+.hero-background::before {
+    background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* Aggressive Dark Reader overrides */
+html[data-darkreader-mode="filter"] .hero-background::before,
+html[data-darkreader-mode="static"] .hero-background::before,
+html[data-darkreader-mode="dynamic"] .hero-background::before,
+html[data-darkreader-scheme="dark"] .hero-background::before,
+html[data-darkreader-mode] .hero-background::before,
+html[data-night-mode] .hero-background::before,
+body.night-mode .hero-background::before,
+body.dark-theme .hero-background::before,
+html.dark .hero-background::before,
+.hero-background::before[style*="background"] {
+    background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover !important;
+    background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    filter: brightness(0.6) contrast(1.2) !important;
+    opacity: 1 !important;
+    display: block !important;
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: -1 !important;
+}
+
+/* Ultra-specific Dark Reader override with maximum specificity */
+html[data-darkreader-mode] body .hero .hero-background::before,
+html[data-darkreader-scheme] body .hero .hero-background::before,
+html[data-darkreader-mode="filter"] body .hero .hero-background::before,
+html[data-darkreader-mode="static"] body .hero .hero-background::before,
+html[data-darkreader-mode="dynamic"] body .hero .hero-background::before {
+    background: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover !important;
+    background-image: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') !important;
+    filter: brightness(0.6) contrast(1.2) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* CSS Custom Property approach for Dark Reader resistance */
+:root {
+    --hero-bg-url: url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+}
+
+/* Backup background using custom property */
+.hero-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--hero-bg-url) center/cover;
+    filter: brightness(0.6) contrast(1.2);
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show backup when main background is hidden */
+html[data-darkreader-mode] .hero-background::after,
+html[data-darkreader-scheme] .hero-background::after {
+    opacity: 1 !important;
+    z-index: -1 !important;
+}
+
+/* Force show backup if main background fails */
+.hero-background[data-bg-failed="true"]::after {
+    opacity: 1 !important;
+    z-index: -1 !important;
+}
+
+/* Force visibility for hero text in case of extension conflicts */
+.hero-title,
+.hero-description {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    position: relative;
+    z-index: 11;
+}
+
+/* Ensure buttons are always visible */
+.hero-buttons .btn {
+    position: relative;
+    z-index: 11;
+}
+
 .hero-content {
-    z-index: 2;
+    z-index: 10;
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
 }
 
 .hero-title {
@@ -617,11 +915,15 @@ section {
 }
 
 .services-list li::before {
-    content: '✓';
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--primary-gold);
-    font-weight: bold;
+    width: 1rem;
+    height: 1rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4AF37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .services-image img {
@@ -883,4 +1185,51 @@ section {
     .hero-overlay {
         background: rgba(0, 0, 0, 0.8);
     }
+}
+
+/* View Options Styling */
+.view-options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.view-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: 2px solid var(--warm-grey);
+    background: transparent;
+    color: var(--warm-grey);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.view-btn:hover {
+    border-color: var(--primary-gold);
+    color: var(--primary-gold);
+}
+
+.view-btn.active {
+    border-color: var(--primary-gold);
+    background: var(--primary-gold);
+    color: var(--deep-black);
+}
+
+.view-btn .icon {
+    width: 16px;
+    height: 16px;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover .icon {
+    color: var(--primary-gold);
+}
+
+.view-btn.active .icon {
+    color: var(--deep-black);
 }
