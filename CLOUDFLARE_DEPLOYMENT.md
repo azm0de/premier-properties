@@ -8,6 +8,37 @@ This guide walks you through deploying the Premier Properties website to Cloudfl
 - GitHub account with this repository
 - Google Maps API key (already configured in the project)
 
+## Local Development Setup
+
+Before deploying, you need to build the project locally:
+
+### Prerequisites
+
+- Node.js installed (v14 or higher)
+- Google Maps API key in `.env` file
+
+### Build Process
+
+1. **Install dependencies** (optional - no npm packages needed for basic build):
+   ```bash
+   # No dependencies to install - uses built-in Node.js modules
+   ```
+
+2. **Run build script**:
+   ```bash
+   npm run build
+   ```
+   This injects your API key from `.env` into `properties.js`
+
+3. **Open in browser**:
+   - Open `index.html` in your browser
+   - The map should work with your API key
+
+**Important:**
+- `properties.js` is git-ignored (contains your API key)
+- `properties.js.template` is committed (no API key)
+- Always run `npm run build` before testing locally
+
 ## Deployment Methods
 
 ### Method 1: GitHub Integration (Recommended)
@@ -29,19 +60,28 @@ In the Cloudflare Pages setup wizard:
 
 - **Project name:** `premier-properties` (or your preferred name)
 - **Production branch:** `main`
-- **Build command:** Leave empty (no build needed - static site)
+- **Build command:** `npm run build`
 - **Build output directory:** `/` (root directory)
 - **Root directory:** Leave empty
 
-#### Step 3: Add Environment Variables
+#### Step 3: Add Environment Variables (REQUIRED)
+
+⚠️ **IMPORTANT:** You MUST add the Google Maps API key as an environment variable.
 
 Click **"Environment Variables"** and add:
 
 | Variable Name | Value | Environment |
 |--------------|-------|-------------|
-| `PUBLIC_GOOGLE_MAPS_API_KEY` | `AIzaSyA-nQtBDrlqsQeFAQfqubQh3RSenqLEE0M` | Production & Preview |
+| `PUBLIC_GOOGLE_MAPS_API_KEY` | Your Google Maps API Key | Production & Preview |
 
-**Note:** Your API key is already hardcoded in `properties.js`. This environment variable is for future improvements where you load it dynamically.
+**How to add:**
+1. Click **"Add variable"**
+2. Name: `PUBLIC_GOOGLE_MAPS_API_KEY`
+3. Value: Paste your Google Maps API key from the `.env` file
+4. Select **"Production"** and **"Preview"** checkboxes
+5. Click **"Save"**
+
+**Security Note:** The API key is now injected at build time from environment variables and never committed to the repository.
 
 #### Step 4: Deploy
 

@@ -1,0 +1,12 @@
+{
+  "name": "premier-properties",
+  "version": "1.0.0",
+  "description": "Luxury real estate website with Google Maps integration",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "echo 'Open index.html in your browser for local development'"
+  },
+  "keywords": ["real-estate", "luxury", "properties"],
+  "author": "",
+  "license": "MIT"
+}

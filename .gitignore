@@ -6,5 +6,11 @@
 # Environment variables (contains API keys)
 .env
 
+# Generated files with API keys (built from template)
+properties.js
+
 # Debug files
 map-debug.html
+
+# Node modules
+node_modules/

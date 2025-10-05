@@ -19,7 +19,9 @@
       "Bash(else echo \"No .gitignore file found\")",
       "Bash(fi)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(node:*)",
+      "Bash(git rm:*)"
     ],
     "deny": [],
     "ask": []

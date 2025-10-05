@@ -370,8 +370,8 @@ function loadGoogleMapsAPI() {
             return;
         }
 
-        // Google Maps API Key
-        const apiKey = 'AIzaSyA-nQtBDrlqsQeFAQfqubQh3RSenqLEE0M';
+        // Google Maps API Key (injected during build)
+        const apiKey = 'YOUR_GOOGLE_MAPS_API_KEY_HERE';
 
         console.log('Loading Google Maps API...');
 
