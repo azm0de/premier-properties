@@ -307,11 +307,26 @@ body.dark-mode .contact-hero .hero-overlay {
 }
 
 .map-section .section-header h2 {
-    color: var(--deep-black) !important;
+    color: #1A1A1A !important;
 }
 
 .map-section .section-header p {
-    color: var(--deep-black) !important;
+    color: #1A1A1A !important;
+}
+
+/* Dark mode overrides for map section */
+@media (prefers-color-scheme: dark) {
+    .map-section .section-header h2,
+    .map-section .section-header p {
+        color: #1A1A1A !important;
+    }
+}
+
+[data-theme="dark"] .map-section .section-header h2,
+body.dark-mode .map-section .section-header h2,
+[data-theme="dark"] .map-section .section-header p,
+body.dark-mode .map-section .section-header p {
+    color: #1A1A1A !important;
 }
 
 .map-container {
