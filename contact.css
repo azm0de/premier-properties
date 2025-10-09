@@ -306,33 +306,23 @@ body.dark-mode .contact-hero .hero-overlay {
     padding: 80px 0;
 }
 
+.map-section .section-header h2 {
+    color: var(--deep-black) !important;
+}
+
+.map-section .section-header p {
+    color: var(--deep-black) !important;
+}
+
 .map-container {
     background: white;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: visible;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 0;
 }
 
-.map-placeholder {
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #f8f8f8;
-    color: var(--warm-grey);
-    text-align: center;
-    padding: 40px;
-}
-
-.map-placeholder p:first-child {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.map-placeholder p:nth-child(2) {
-    font-size: 1.2rem;
-    color: var(--deep-black);
+#contact-map {
     margin-bottom: 25px;
 }
 
@@ -341,6 +331,7 @@ body.dark-mode .contact-hero .hero-overlay {
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 20px;
 }
 
 .map-features span {
@@ -350,12 +341,23 @@ body.dark-mode .contact-hero .hero-overlay {
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 /* FAQ Section */
 .faq-section {
     padding: 100px 0;
     background: white;
+}
+
+.faq-section .section-header h2 {
+    color: var(--deep-black) !important;
+}
+
+.faq-section .section-header p {
+    color: var(--deep-black) !important;
 }
 
 .faq-container {
@@ -508,8 +510,13 @@ body.dark-mode .contact-hero .hero-overlay {
         padding: 30px 20px;
     }
 
+    #contact-map {
+        height: 350px !important;
+    }
+
     .map-features {
         gap: 15px;
+        flex-direction: column;
     }
 
     .map-features span {
@@ -540,8 +547,8 @@ body.dark-mode .contact-hero .hero-overlay {
         gap: 15px;
     }
 
-    .map-placeholder {
-        padding: 20px;
+    #contact-map {
+        height: 300px !important;
     }
 
     .map-features {

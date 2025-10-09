@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Optimized SVG Icon Loading -->
     <script src="icons-loader.js" defer></script>
+
+    <!-- Google Maps will be loaded dynamically via JavaScript -->
 </head>
 <body>
     <!-- Navigation -->
@@ -183,8 +185,8 @@
                         </svg></div>
                         <div class="contact-details">
                             <h4>Office Location</h4>
-                            <p>9876 Wilshire Boulevard</p>
-                            <p>Beverly Hills, CA 90210</p>
+                            <p>123 Business Park Dr</p>
+                            <p>Texarkana, TX 75503</p>
                         </div>
                     </div>
 
@@ -227,25 +229,22 @@
         <div class="container">
             <div class="section-header">
                 <h2>Visit Our Office</h2>
-                <p>Located in the heart of Beverly Hills</p>
+                <p>Located in Texarkana, Texas</p>
             </div>
             <div class="map-container">
-                <div class="map-placeholder">
-                    <p><svg class="icon icon-xl icon-primary">
-                            <use href="#icon-map"></use>
-                        </svg> Interactive map showing our Beverly Hills office location</p>
-                    <p>9876 Wilshire Boulevard, Beverly Hills, CA 90210</p>
-                    <div class="map-features">
-                        <span><svg class="icon">
-                            <use href="#icon-parking"></use>
-                        </svg> Valet Parking Available</span>
-                        <span><svg class="icon">
-                            <use href="#icon-metro"></use>
-                        </svg> Near Metro Stations</span>
-                        <span><svg class="icon">
-                            <use href="#icon-amenities"></use>
-                        </svg> Premium Amenities</span>
-                    </div>
+                <div id="contact-map" style="height: 450px; width: 100%; border-radius: 15px; overflow: hidden; border: 3px solid var(--primary-gold);">
+                    <!-- Google Maps will be loaded here via JavaScript API -->
+                </div>
+                <div class="map-features">
+                    <span><svg class="icon">
+                        <use href="#icon-parking"></use>
+                    </svg> Valet Parking Available</span>
+                    <span><svg class="icon">
+                        <use href="#icon-metro"></use>
+                    </svg> Near Metro Stations</span>
+                    <span><svg class="icon">
+                        <use href="#icon-amenities"></use>
+                    </svg> Premium Amenities</span>
                 </div>
             </div>
         </div>
@@ -380,7 +379,7 @@
                         </svg> (555) PREMIER</p>
                     <p><svg class="icon">
                             <use href="#icon-location"></use>
-                        </svg> Beverly Hills, CA</p>
+                        </svg> Texarkana, TX</p>
                 </div>
             </div>
 
