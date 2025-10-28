@@ -525,7 +525,6 @@ body.dark-mode .map-section .section-header p {
 
     .form-row {
         grid-template-columns: 1fr;
-        gap: 0;
     }
 
     .contact-info {
@@ -549,6 +548,16 @@ body.dark-mode .map-section .section-header p {
     .faq-question h3 {
         font-size: 1.1rem;
         padding-right: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
     }
 }
 

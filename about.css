@@ -30,6 +30,13 @@
     .about-hero .hero-overlay {
         background: rgba(26, 26, 26, 0.4) !important;
     }
+
+    .stat-icon svg,
+    .stat-icon .icon {
+        fill: #D4AF37 !important;
+        stroke: #D4AF37 !important;
+        color: #D4AF37 !important;
+    }
 }
 
 [data-theme="dark"] .about-hero .hero-background,
@@ -40,6 +47,15 @@ body.dark-mode .about-hero .hero-background {
 [data-theme="dark"] .about-hero .hero-overlay,
 body.dark-mode .about-hero .hero-overlay {
     background: rgba(26, 26, 26, 0.4) !important;
+}
+
+[data-theme="dark"] .stat-icon svg,
+[data-theme="dark"] .stat-icon .icon,
+body.dark-mode .stat-icon svg,
+body.dark-mode .stat-icon .icon {
+    fill: #D4AF37 !important;
+    stroke: #D4AF37 !important;
+    color: #D4AF37 !important;
 }
 
 .about-hero .hero-overlay {
@@ -171,6 +187,27 @@ body.dark-mode .about-hero .hero-overlay {
 .stat-icon {
     font-size: 3rem;
     margin-bottom: 20px;
+    color: var(--primary-gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.stat-icon svg,
+.stat-icon .icon {
+    width: 64px !important;
+    height: 64px !important;
+    fill: #D4AF37 !important;
+    stroke: #D4AF37 !important;
+    color: #D4AF37 !important;
+    display: block;
+}
+
+.stat-icon svg use,
+.stat-icon .icon use {
+    fill: inherit;
+    stroke: inherit;
+    color: inherit;
 }
 
 .stat-number {
@@ -348,6 +385,27 @@ body.dark-mode .about-hero .hero-overlay {
 .award-icon {
     font-size: 4rem;
     margin-bottom: 25px;
+    color: var(--primary-gold);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.award-icon svg,
+.award-icon .icon {
+    width: 64px !important;
+    height: 64px !important;
+    fill: #D4AF37 !important;
+    stroke: #D4AF37 !important;
+    color: #D4AF37 !important;
+    display: block;
+}
+
+.award-icon svg use,
+.award-icon .icon use {
+    fill: inherit;
+    stroke: inherit;
+    color: inherit;
 }
 
 .award-card h3 {
@@ -402,6 +460,16 @@ body.dark-mode .about-hero .hero-overlay {
 
     .awards-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .story-text h2 {
+        font-size: 2rem;
     }
 }
 

@@ -616,6 +616,16 @@ body.dark-mode .properties-hero .hero-overlay {
     }
 }
 
+@media (max-width: 600px) {
+    .properties-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .properties-section h2 {
+        font-size: 2rem;
+    }
+}
+
 @media (max-width: 480px) {
     .properties-hero h1 {
         font-size: 2rem;

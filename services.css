@@ -84,7 +84,7 @@ body.dark-mode .services-hero .hero-overlay {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 40px;
 }
 
@@ -410,6 +410,36 @@ body.dark-mode .services-hero .hero-overlay {
 
     .advantages-grid {
         gap: 25px;
+    }
+
+    .advantage {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .advantage-icon {
+        margin-bottom: 5px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .service-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .why-text h2 {
+        font-size: 2rem;
     }
 }
 
