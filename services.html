@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="services.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
     <!-- Optimized SVG Icon Loading -->
     <script src="icons-loader.js" defer></script>
 </head>
@@ -15,7 +18,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <h2>Premier Properties</h2>
+                <a href="index.html"><h2>Premier Properties</h2></a>
             </div>
             <ul class="nav-menu" id="nav-menu">
                 <li class="nav-item">
@@ -64,8 +67,17 @@
             <div class="services-grid">
                 <!-- Service 1: Luxury Sales -->
                 <div class="service-card">
-                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-trophy"></use>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium Luxury House Key -->
+                        <circle cx="18" cy="32" r="10" fill="currentColor" opacity="0.15"/>
+                        <circle cx="18" cy="32" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="18" cy="32" r="4" fill="currentColor" opacity="0.4"/>
+                        <rect x="26" y="30" width="22" height="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <rect x="36" y="26" width="3" height="4" fill="currentColor"/>
+                        <rect x="40" y="26" width="3" height="4" fill="currentColor"/>
+                        <rect x="44" y="26" width="3" height="4" fill="currentColor"/>
+                        <path d="M48 28L54 32L48 36V28Z" fill="currentColor"/>
+                        <circle cx="18" cy="32" r="2" fill="currentColor"/>
                     </svg></div>
                     <h3>Luxury Property Sales</h3>
                     <p>Expert guidance through every step of buying or selling luxury real estate, ensuring maximum value and seamless transactions.</p>
@@ -81,8 +93,20 @@
 
                 <!-- Service 2: Investment Consulting -->
                 <div class="service-card">
-                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-chart"></use>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium Growth Chart with Coins -->
+                        <circle cx="48" cy="16" r="8" fill="currentColor" opacity="0.15"/>
+                        <circle cx="48" cy="16" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <text x="48" y="19" font-size="8" font-weight="bold" text-anchor="middle" fill="currentColor">$</text>
+                        <path d="M10 48L10 42L18 38L26 32L34 28L42 20L50 12" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="10" cy="42" r="3" fill="currentColor"/>
+                        <circle cx="18" cy="38" r="3" fill="currentColor"/>
+                        <circle cx="26" cy="32" r="3" fill="currentColor"/>
+                        <circle cx="34" cy="28" r="3" fill="currentColor"/>
+                        <circle cx="42" cy="20" r="3" fill="currentColor"/>
+                        <circle cx="50" cy="12" r="3" fill="currentColor"/>
+                        <path d="M44 12L50 6L56 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <line x1="8" y1="50" x2="56" y2="50" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg></div>
                     <h3>Investment Consulting</h3>
                     <p>Strategic investment advice for building and optimizing luxury real estate portfolios with maximum returns.</p>
@@ -98,8 +122,18 @@
 
                 <!-- Service 3: Market Analysis -->
                 <div class="service-card">
-                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-analytics"></use>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium Analytics Dashboard -->
+                        <rect x="8" y="8" width="48" height="48" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <rect x="8" y="8" width="48" height="10" fill="currentColor" opacity="0.15"/>
+                        <circle cx="14" cy="13" r="2" fill="currentColor" opacity="0.5"/>
+                        <circle cx="20" cy="13" r="2" fill="currentColor" opacity="0.5"/>
+                        <circle cx="26" cy="13" r="2" fill="currentColor" opacity="0.5"/>
+                        <rect x="14" y="44" width="6" height="8" fill="currentColor" opacity="0.6"/>
+                        <rect x="24" y="36" width="6" height="16" fill="currentColor" opacity="0.7"/>
+                        <rect x="34" y="28" width="6" height="24" fill="currentColor" opacity="0.8"/>
+                        <rect x="44" y="24" width="6" height="28" fill="currentColor"/>
+                        <path d="M14 34L20 30L26 32L32 26L38 28L44 22L50 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg></div>
                     <h3>Market Analysis & Valuation</h3>
                     <p>Comprehensive market research and property valuations using advanced analytics and local market expertise.</p>
@@ -115,8 +149,18 @@
 
                 <!-- Service 4: Concierge Services -->
                 <div class="service-card">
-                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-target"></use>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium Concierge Bell -->
+                        <path d="M20 36C20 28 24 20 32 20C40 20 44 28 44 36H20Z" fill="currentColor" opacity="0.15"/>
+                        <path d="M22 34C22 27 26 22 32 22C38 22 42 27 42 34" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <ellipse cx="32" cy="34" rx="18" ry="4" fill="currentColor" opacity="0.2"/>
+                        <ellipse cx="32" cy="34" rx="16" ry="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <rect x="18" y="34" width="28" height="4" fill="currentColor" opacity="0.3"/>
+                        <line x1="16" y1="38" x2="48" y2="38" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <circle cx="32" cy="16" r="3" fill="currentColor"/>
+                        <line x1="32" y1="16" x2="32" y2="22" stroke="currentColor" stroke-width="2"/>
+                        <path d="M28 42L32 48L36 42" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="32" cy="48" r="2" fill="currentColor"/>
                     </svg></div>
                     <h3>Concierge Services</h3>
                     <p>White-glove support for all aspects of luxury property ownership, from acquisition to ongoing management.</p>
@@ -132,8 +176,21 @@
 
                 <!-- Service 5: Global Network -->
                 <div class="service-card">
-                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-globe"></use>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium Globe Network -->
+                        <circle cx="32" cy="32" r="24" fill="currentColor" opacity="0.1"/>
+                        <circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <ellipse cx="32" cy="32" rx="12" ry="22" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <line x1="10" y1="32" x2="54" y2="32" stroke="currentColor" stroke-width="2"/>
+                        <ellipse cx="32" cy="32" rx="22" ry="10" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M20 16Q26 20, 32 16Q38 12, 44 16" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M20 48Q26 44, 32 48Q38 52, 44 48" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <circle cx="16" cy="20" r="2" fill="currentColor"/>
+                        <circle cx="48" cy="20" r="2" fill="currentColor"/>
+                        <circle cx="32" cy="10" r="2" fill="currentColor"/>
+                        <circle cx="32" cy="54" r="2" fill="currentColor"/>
+                        <circle cx="48" cy="44" r="2" fill="currentColor"/>
+                        <circle cx="16" cy="44" r="2" fill="currentColor"/>
                     </svg></div>
                     <h3>Global Network Access</h3>
                     <p>Exclusive access to international luxury properties through our worldwide network of premium real estate partners.</p>
@@ -149,8 +206,20 @@
 
                 <!-- Service 6: Private Client Services -->
                 <div class="service-card">
-                    <div class="service-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-crown"></use>
+                    <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium VIP Crown with Gems -->
+                        <path d="M12 24L16 36L32 32L48 36L52 24L48 36H16L12 24Z" fill="currentColor" opacity="0.2"/>
+                        <path d="M14 26L18 36H46L50 26" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="14" cy="26" r="3" fill="currentColor"/>
+                        <circle cx="32" cy="22" r="3" fill="currentColor"/>
+                        <circle cx="50" cy="26" r="3" fill="currentColor"/>
+                        <path d="M14 26L18 30L32 24L46 30L50 26" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <rect x="16" y="36" width="32" height="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M20 40L24 36L28 40L32 36L36 40L40 36L44 40" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <circle cx="14" cy="26" r="1.5" fill="#fff" opacity="0.8"/>
+                        <circle cx="32" cy="22" r="1.5" fill="#fff" opacity="0.8"/>
+                        <circle cx="50" cy="26" r="1.5" fill="#fff" opacity="0.8"/>
+                        <path d="M24 44L26 48L32 46L38 48L40 44" stroke="currentColor" stroke-width="2" fill="none"/>
                     </svg></div>
                     <h3>Private Client Services</h3>
                     <p>Bespoke real estate solutions for ultra-high-net-worth individuals requiring discretion and personalized attention.</p>
@@ -229,8 +298,16 @@
 
                     <div class="advantages-grid">
                         <div class="advantage">
-                            <div class="advantage-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-sparkle"></use>
+                            <div class="advantage-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium Key Lock -->
+                        <rect x="20" y="28" width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/>
+                        <rect x="22" y="30" width="20" height="20" rx="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="32" cy="40" r="4" fill="currentColor" opacity="0.4"/>
+                        <circle cx="32" cy="40" r="3" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <rect x="30" y="40" width="4" height="6" fill="currentColor"/>
+                        <path d="M26 30V22C26 18 28 14 32 14C36 14 38 18 38 22V30" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <circle cx="26" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
+                        <circle cx="38" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
                     </svg></div>
                             <div class="advantage-text">
                                 <h4>Exclusive Access</h4>
@@ -239,8 +316,14 @@
                         </div>
 
                         <div class="advantage">
-                            <div class="advantage-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-target"></use>
+                            <div class="advantage-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium Personalized User -->
+                        <circle cx="32" cy="22" r="10" fill="currentColor" opacity="0.15"/>
+                        <circle cx="32" cy="22" r="8" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M16 52C16 42 22 36 32 36C42 36 48 42 48 52" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <path d="M18 50C18 42 23 38 32 38C41 38 46 42 46 50" fill="currentColor" opacity="0.15"/>
+                        <circle cx="32" cy="22" r="4" fill="currentColor" opacity="0.4"/>
+                        <path d="M28 48L32 52L36 48" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg></div>
                             <div class="advantage-text">
                                 <h4>Personalized Service</h4>
@@ -249,8 +332,16 @@
                         </div>
 
                         <div class="advantage">
-                            <div class="advantage-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-trophy"></use>
+                            <div class="advantage-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium Success Chart -->
+                        <path d="M10 50L18 42L26 38L34 32L42 28L50 20L54 16" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="18" cy="42" r="4" fill="currentColor"/>
+                        <circle cx="26" cy="38" r="4" fill="currentColor"/>
+                        <circle cx="34" cy="32" r="4" fill="currentColor"/>
+                        <circle cx="42" cy="28" r="4" fill="currentColor"/>
+                        <circle cx="50" cy="20" r="4" fill="currentColor"/>
+                        <path d="M46 16L54 10L58 18" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 46L18 38L26 34L34 28L42 24L50 16" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
                     </svg></div>
                             <div class="advantage-text">
                                 <h4>Proven Results</h4>
@@ -259,8 +350,16 @@
                         </div>
 
                         <div class="advantage">
-                            <div class="advantage-icon"><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <use href="#icon-globe"></use>
+                            <div class="advantage-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                        <!-- Premium World Map -->
+                        <circle cx="32" cy="32" r="24" fill="currentColor" opacity="0.1"/>
+                        <circle cx="32" cy="32" r="22" stroke="currentColor" stroke-width="2" fill="none"/>
+                        <ellipse cx="32" cy="32" rx="11" ry="22" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <line x1="10" y1="32" x2="54" y2="32" stroke="currentColor" stroke-width="2"/>
+                        <line x1="10" y1="20" x2="54" y2="20" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                        <line x1="10" y1="44" x2="54" y2="44" stroke="currentColor" stroke-width="1.5" opacity="0.5"/>
+                        <path d="M22 14L26 18L30 14L34 18L38 14L42 18" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                        <path d="M22 50L26 46L30 50L34 46L38 50L42 46" stroke="currentColor" stroke-width="1.5" fill="none"/>
                     </svg></div>
                             <div class="advantage-text">
                                 <h4>Global Reach</h4>

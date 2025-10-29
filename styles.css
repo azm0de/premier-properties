@@ -130,6 +130,26 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-gold);
 }
 
+/* Brand Font Classes */
+.brand-name,
+.company-name {
+    font-family: "Tangerine", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.tangerine-regular {
+    font-family: "Tangerine", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.tangerine-bold {
+    font-family: "Tangerine", cursive;
+    font-weight: 700;
+    font-style: normal;
+}
+
 /* Service Icons */
 .service-icon .icon,
 .stat-icon .icon,
@@ -215,10 +235,22 @@ svg.icon {
     padding: 0 20px;
 }
 
+.nav-logo a {
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-logo a:hover {
+    opacity: 0.8;
+}
+
 .nav-logo h2 {
     color: var(--primary-gold);
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: "Tangerine", cursive;
+    font-style: normal;
 }
 
 .nav-menu {
