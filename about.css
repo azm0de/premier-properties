@@ -1,528 +1,250 @@
-/* About Page Specific Styles */
+/* ============================================================================
+   About page — section styles unique to about.html
+   (Shared components live in styles.css)
+   ========================================================================== */
 
-/* About Hero */
-.about-hero {
-    height: 60vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-}
-
-.about-hero .hero-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-    z-index: 0;
-}
-
-/* Dark mode support for about hero */
-@media (prefers-color-scheme: dark) {
-    .about-hero .hero-background {
-        filter: brightness(0.85) contrast(1.1);
-    }
-
-    .about-hero .hero-overlay {
-        background: rgba(26, 26, 26, 0.4) !important;
-    }
-
-    .stat-icon svg,
-    .stat-icon .icon {
-        fill: #D4AF37 !important;
-        stroke: #D4AF37 !important;
-        color: #D4AF37 !important;
-    }
-}
-
-[data-theme="dark"] .about-hero .hero-background,
-body.dark-mode .about-hero .hero-background {
-    filter: brightness(0.85) contrast(1.1);
-}
-
-[data-theme="dark"] .about-hero .hero-overlay,
-body.dark-mode .about-hero .hero-overlay {
-    background: rgba(26, 26, 26, 0.4) !important;
-}
-
-[data-theme="dark"] .stat-icon svg,
-[data-theme="dark"] .stat-icon .icon,
-body.dark-mode .stat-icon svg,
-body.dark-mode .stat-icon .icon {
-    fill: #D4AF37 !important;
-    stroke: #D4AF37 !important;
-    color: #D4AF37 !important;
-}
-
-.about-hero .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(26, 26, 26, 0.6);
-    z-index: 2;
-}
-
-.about-hero .hero-content {
-    z-index: 10;
-    padding-top: 80px;
-}
-
-.about-hero h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-.about-hero p {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* Company Story */
-.company-story {
-    padding: 100px 0;
-    background: white;
-}
+/* --- Company Story ------------------------------------------------------- */
+.company-story { background: var(--alabaster); }
 
 .story-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(2.5rem, 1rem + 6vw, 6rem);
     align-items: center;
 }
 
-.story-text h2 {
-    font-size: 3rem;
-    color: var(--deep-black);
-    margin-bottom: 30px;
-}
-
-.lead {
-    font-size: 1.3rem;
-    color: var(--primary-gold);
-    font-weight: 500;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.story-text p {
-    font-size: 1.1rem;
-    color: var(--warm-grey);
-    margin-bottom: 25px;
+.story-text h2 { margin-bottom: var(--space-3); }
+.story-text .lead { margin-bottom: var(--space-3); }
+.story-text > p {
+    color: var(--stone-700);
+    margin-bottom: var(--space-3);
     line-height: 1.8;
 }
 
+/* Company values — elegant bordered tiles */
 .company-values {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 30px;
-    margin-top: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 0.5rem + 1.5vw, 1.5rem);
+    margin-top: var(--space-5);
 }
-
 .value {
-    text-align: center;
-    padding: 20px;
-    background: var(--light-grey);
-    border-radius: 10px;
-    transition: transform 0.3s ease;
+    padding: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    transition: transform var(--dur-2) var(--ease),
+                box-shadow var(--dur-2) var(--ease),
+                border-color var(--dur-2) var(--ease);
 }
-
 .value:hover {
     transform: translateY(-5px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--hairline);
 }
-
 .value h4 {
-    color: var(--deep-black);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
+    color: var(--ink);
+    font-size: var(--fs-h5);
+    margin-bottom: 0.6rem;
 }
-
+.value h4::before {
+    content: "";
+    display: block;
+    width: 1.75rem;
+    height: 1px;
+    background: var(--brass);
+    margin-bottom: 0.9rem;
+}
 .value p {
-    color: var(--warm-grey);
+    color: var(--stone-500);
     font-size: 0.9rem;
     line-height: 1.6;
     margin: 0;
 }
 
+/* Story image */
+.story-image { position: relative; }
 .story-image img {
     width: 100%;
-    height: 500px;
+    aspect-ratio: 4 / 5;
     object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
 }
 
-/* Statistics */
-.statistics {
-    background: var(--deep-black);
-    padding: 80px 0;
-    color: white;
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-}
-
-.stat-card {
-    text-align: center;
-    padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-10px);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.stat-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: var(--primary-gold);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.stat-icon svg,
-.stat-icon .icon {
-    width: 64px !important;
-    height: 64px !important;
-    fill: #D4AF37 !important;
-    stroke: #D4AF37 !important;
-    color: #D4AF37 !important;
-    display: block;
-}
-
-.stat-icon svg use,
-.stat-icon .icon use {
-    fill: inherit;
-    stroke: inherit;
-    color: inherit;
-}
-
-.stat-number {
-    display: block;
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--primary-gold);
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.stat-label {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 400;
-}
-
-/* Team Section */
-.team-section {
-    padding: 100px 0;
-    background: var(--light-grey);
-}
-
-.team-section .section-header h2 {
-    color: var(--deep-black) !important;
-}
-
-.team-section .section-header p {
-    color: var(--warm-grey) !important;
-}
+/* --- Team Section -------------------------------------------------------- */
+.team-section { background: var(--cream); }
 
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 1rem + 2vw, 2.5rem);
 }
 
 .team-card {
-    background: white;
-    border-radius: 15px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--dur-2) var(--ease),
+                box-shadow var(--dur-2) var(--ease),
+                border-color var(--dur-2) var(--ease);
 }
-
 .team-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--hairline);
 }
 
 .team-image {
     position: relative;
-    height: 300px;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
 }
-
 .team-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform var(--dur-3) var(--ease);
 }
-
-.team-card:hover .team-image img {
-    transform: scale(1.1);
-}
+.team-card:hover .team-image img { transform: scale(1.07); }
 
 .team-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(26, 26, 26, 0.8);
+    inset: 0;
     display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 1.75rem;
+    background: linear-gradient(180deg, rgba(15,12,9,0) 35%, rgba(15,12,9,0.72) 100%);
+    opacity: 0;
+    transition: opacity var(--dur-2) var(--ease);
+}
+.team-card:hover .team-overlay { opacity: 1; }
+
+.team-social { display: flex; gap: 1.1rem; }
+.team-social a {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 50%;
+    color: var(--white);
+    transition: background var(--dur-1) var(--ease),
+                color var(--dur-1) var(--ease),
+                border-color var(--dur-1) var(--ease),
+                transform var(--dur-1) var(--ease);
 }
-
-.team-card:hover .team-overlay {
-    opacity: 1;
-}
-
-.team-social {
-    display: flex;
-    gap: 20px;
-}
-
-.team-social a {
-    color: white;
-    font-size: 1.5rem;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
 .team-social a:hover {
-    color: var(--primary-gold);
+    background: var(--brass);
+    border-color: var(--brass);
+    color: var(--white);
     transform: translateY(-3px);
 }
+.team-social .icon { width: 1.05rem; height: 1.05rem; }
 
-.team-info {
-    padding: 30px;
-}
-
+.team-info { padding: clamp(1.5rem, 1rem + 1vw, 2rem); }
 .team-info h3 {
-    font-size: 1.5rem;
-    color: var(--deep-black);
-    margin-bottom: 5px;
+    color: var(--ink);
+    font-size: var(--fs-h4);
+    margin-bottom: 0.3rem;
 }
-
 .team-title {
-    color: var(--primary-gold);
+    color: var(--brass-deep);
+    font-family: var(--font-ui);
     font-weight: 600;
-    margin-bottom: 15px;
-    font-size: 1rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
 }
-
 .team-description {
-    color: var(--warm-grey);
-    line-height: 1.6;
-    margin-bottom: 20px;
+    color: var(--stone-700);
+    line-height: 1.65;
     font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
 }
-
 .team-achievements {
     display: flex;
-    gap: 8px;
     flex-wrap: wrap;
+    gap: 0.5rem;
 }
-
 .team-achievements span {
-    background: var(--light-grey);
-    color: var(--deep-black);
-    padding: 5px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: 500;
+    background: var(--champagne-2);
+    color: var(--brass-deep);
+    padding: 0.35em 0.85em;
+    border-radius: var(--radius-pill);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
 }
 
-/* Awards Section */
-.awards-section {
-    padding: 100px 0;
-    background: white;
-}
-
-.awards-section .section-header h2 {
-    color: var(--deep-black) !important;
-}
-
-.awards-section .section-header p {
-    color: var(--warm-grey) !important;
-}
+/* --- Awards Section ------------------------------------------------------ */
+.awards-section { background: var(--alabaster); }
 
 .awards-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1.5rem, 1rem + 2vw, 2.5rem);
 }
 
 .award-card {
     text-align: center;
-    padding: 40px 30px;
-    background: var(--light-grey);
-    border-radius: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: clamp(2rem, 1.5rem + 1.5vw, 2.75rem) clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    background: var(--cream);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    transition: transform var(--dur-2) var(--ease),
+                box-shadow var(--dur-2) var(--ease),
+                border-color var(--dur-2) var(--ease);
 }
-
 .award-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    background: white;
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+    border-color: var(--hairline);
 }
 
 .award-icon {
-    font-size: 4rem;
-    margin-bottom: 25px;
-    color: var(--primary-gold);
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--brass);
+    margin-bottom: 1.5rem;
 }
-
-.award-icon svg,
 .award-icon .icon {
-    width: 64px !important;
-    height: 64px !important;
-    fill: #D4AF37 !important;
-    stroke: #D4AF37 !important;
-    color: #D4AF37 !important;
-    display: block;
-}
-
-.award-icon svg use,
-.award-icon .icon use {
-    fill: inherit;
-    stroke: inherit;
-    color: inherit;
+    width: 56px;
+    height: 56px;
 }
 
 .award-card h3 {
-    color: var(--deep-black);
-    margin-bottom: 15px;
-    font-size: 1.3rem;
+    color: var(--ink);
+    font-size: var(--fs-h5);
+    line-height: 1.3;
+    margin-bottom: 0.85rem;
 }
-
 .award-card p {
-    color: var(--warm-grey);
-    font-size: 1rem;
+    color: var(--stone-500);
+    font-size: 0.9rem;
     line-height: 1.6;
 }
 
-/* Active Navigation */
-.nav-link.active {
-    color: var(--primary-gold);
+/* --- Responsive ---------------------------------------------------------- */
+@media (max-width: 980px) {
+    .story-content { grid-template-columns: 1fr; }
+    .story-image img { aspect-ratio: 16 / 10; }
+    .team-grid { grid-template-columns: repeat(2, 1fr); }
+    .awards-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-.nav-link.active::after {
-    width: 100%;
-}
-
-/* Responsive Design */
 @media (max-width: 768px) {
-    .about-hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .story-content {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .story-text h2 {
-        font-size: 2.2rem;
-    }
-
-    .company-values {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-
-    .team-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .awards-grid {
-        grid-template-columns: 1fr;
-    }
+    .company-values { grid-template-columns: 1fr; }
 }
 
-@media (max-width: 600px) {
-    .about-hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .story-text h2 {
-        font-size: 2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .about-hero h1 {
-        font-size: 2rem;
-    }
-
-    .stats-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stat-card {
-        padding: 30px 15px;
-    }
-
-    .team-info {
-        padding: 20px;
-    }
-
-    .award-card {
-        padding: 30px 20px;
-    }
-}
-
-/* Animations */
-.fade-in-up {
-    animation: fadeInUp 0.8s ease-out;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Counter Animation */
-.stat-number {
-    animation: countUp 2s ease-out;
-}
-
-@keyframes countUp {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+@media (max-width: 520px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .awards-grid { grid-template-columns: 1fr; }
 }

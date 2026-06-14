@@ -246,32 +246,8 @@ function scheduleTour(propertyCard) {
     }
 }
 
-// Property card animation on scroll
-if ('IntersectionObserver' in window) {
-    const propertyObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 100);
-                propertyObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    // Initially hide property cards for animation
-    const propertyCards = document.querySelectorAll('.property-card');
-    propertyCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        propertyObserver.observe(card);
-    });
-}
+// Property card reveal-on-scroll is handled globally by script.js via the
+// [data-reveal] system; no separate animation is needed here.
 
 // Property comparison functionality (future enhancement)
 function setupPropertyComparison() {
@@ -436,24 +412,24 @@ function createInfoWindowContent(location) {
         <div style="font-family: 'Montserrat', sans-serif; padding: 10px; min-width: 250px;">
             <h3 style="margin: 0 0 10px 0; color: #1a1a1a; font-size: 1.1rem;">${location.name}</h3>
             <div style="margin-bottom: 8px; color: #666;">
-                <strong style="color: #D4AF37;">Address:</strong><br/>
+                <strong style="color: #B0894F;">Address:</strong><br/>
                 ${location.address}
             </div>
             <div style="margin-bottom: 8px; color: #666;">
-                <strong style="color: #D4AF37;">Phone:</strong> ${location.phone}
+                <strong style="color: #B0894F;">Phone:</strong> ${location.phone}
             </div>
             <div style="margin-bottom: 12px; color: #666;">
-                <strong style="color: #D4AF37;">Hours:</strong><br/>
+                <strong style="color: #B0894F;">Hours:</strong><br/>
                 ${location.hours.weekdays}<br/>
                 ${location.hours.weekends}
             </div>
             <a href="https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}"
                target="_blank"
-               style="display: inline-block; background: #D4AF37; color: white; padding: 8px 16px;
+               style="display: inline-block; background: #B0894F; color: white; padding: 8px 16px;
                       text-decoration: none; border-radius: 5px; font-weight: 600;
                       transition: background 0.3s ease;"
-               onmouseover="this.style.background='#c5a028'"
-               onmouseout="this.style.background='#D4AF37'">
+               onmouseover="this.style.background='#8A6A38'"
+               onmouseout="this.style.background='#B0894F'">
                 Get Directions
             </a>
         </div>

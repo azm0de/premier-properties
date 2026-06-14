@@ -417,9 +417,9 @@ function loadGoogleMapsAPI() {
 function createCustomMarker() {
     const svg = `
         <svg width="50" height="60" viewBox="0 0 50 60" xmlns="http://www.w3.org/2000/svg">
-            <path d="M25 0C11.193 0 0 11.193 0 25c0 17.5 25 35 25 35s25-17.5 25-35C50 11.193 38.807 0 25 0z" fill="#D4AF37"/>
+            <path d="M25 0C11.193 0 0 11.193 0 25c0 17.5 25 35 25 35s25-17.5 25-35C50 11.193 38.807 0 25 0z" fill="#B0894F"/>
             <circle cx="25" cy="25" r="15" fill="white"/>
-            <text x="25" y="30" font-size="16" font-weight="bold" text-anchor="middle" fill="#D4AF37" font-family="Arial, sans-serif">PP</text>
+            <text x="25" y="30" font-size="16" font-weight="bold" text-anchor="middle" fill="#B0894F" font-family="Arial, sans-serif">PP</text>
         </svg>
     `;
     return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
@@ -433,15 +433,15 @@ function createInfoWindowContent(location) {
                 Premier Properties - Visit Us Here!
             </h3>
             <div style="margin-bottom: 10px; color: #666; line-height: 1.6;">
-                <strong style="color: #D4AF37;">Address:</strong><br/>
+                <strong style="color: #B0894F;">Address:</strong><br/>
                 ${location.address}
             </div>
             <div style="margin-bottom: 10px; color: #666;">
-                <strong style="color: #D4AF37;">Phone:</strong> ${location.phone}<br/>
-                <strong style="color: #D4AF37;">Email:</strong> ${location.email}
+                <strong style="color: #B0894F;">Phone:</strong> ${location.phone}<br/>
+                <strong style="color: #B0894F;">Email:</strong> ${location.email}
             </div>
             <div style="margin-bottom: 15px; color: #666; font-size: 0.9rem;">
-                <strong style="color: #D4AF37;">Office Hours:</strong><br/>
+                <strong style="color: #B0894F;">Office Hours:</strong><br/>
                 ${location.hours.weekdays}<br/>
                 ${location.hours.saturday}<br/>
                 ${location.hours.sunday}
@@ -449,11 +449,11 @@ function createInfoWindowContent(location) {
             <div style="display: flex; gap: 10px;">
                 <a href="https://www.google.com/maps/dir/?api=1&destination=${location.lat},${location.lng}"
                    target="_blank"
-                   style="display: inline-block; background: #D4AF37; color: white; padding: 10px 18px;
+                   style="display: inline-block; background: #B0894F; color: white; padding: 10px 18px;
                           text-decoration: none; border-radius: 5px; font-weight: 600; font-size: 0.9rem;
                           transition: background 0.3s ease; text-align: center; flex: 1;"
-                   onmouseover="this.style.background='#c5a028'"
-                   onmouseout="this.style.background='#D4AF37'">
+                   onmouseover="this.style.background='#8A6A38'"
+                   onmouseout="this.style.background='#B0894F'">
                     Get Directions
                 </a>
                 <a href="tel:${location.phone.replace(/\D/g, '')}"

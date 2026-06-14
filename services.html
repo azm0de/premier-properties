@@ -4,38 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | Premier Properties</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="services.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Comprehensive luxury real estate solutions from Premier Properties — sales, investment consulting, market analysis, concierge, global access, and private client services.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231B1712'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Georgia,serif'%20font-size='18'%20fill='%23B0894F'%20text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Optimized SVG Icon Loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="services.css">
+
     <script src="icons-loader.js" defer></script>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html"><h2>Premier Properties</h2></a>
+                <a href="index.html" aria-label="Premier Properties — Home"><h2>Premier Properties</h2></a>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="properties.html" class="nav-link">Properties</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="services.html" class="nav-link active">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link contact-btn">Contact</a>
-                </li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="properties.html" class="nav-link">Properties</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link active">Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link contact-btn">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -45,14 +41,13 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="services-hero">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-        </div>
-        <div class="hero-content">
+    <main id="main">
+    <!-- Hero -->
+    <section class="page-hero services-hero" style="--hero-image:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80')">
+        <div class="container">
+            <span class="eyebrow eyebrow--center">What We Offer</span>
             <h1>Our Services</h1>
-            <p>Comprehensive luxury real estate solutions tailored to your needs</p>
+            <p>Comprehensive luxury real estate solutions tailored to your needs.</p>
         </div>
     </section>
 
@@ -60,13 +55,14 @@
     <section class="services-overview">
         <div class="container">
             <div class="section-header">
-                <h2>Exceptional Service Portfolio</h2>
-                <p>From acquisition to investment management, we provide end-to-end luxury real estate solutions</p>
+                <span class="eyebrow eyebrow--center" data-reveal>The Full Spectrum</span>
+                <h2 data-reveal>Exceptional Service Portfolio</h2>
+                <p data-reveal>From acquisition to investment management, we provide end-to-end luxury real estate solutions.</p>
             </div>
 
             <div class="services-grid">
                 <!-- Service 1: Luxury Sales -->
-                <div class="service-card">
+                <div class="service-card" data-reveal data-reveal-stagger>
                     <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium Luxury House Key -->
                         <circle cx="18" cy="32" r="10" fill="currentColor" opacity="0.15"/>
@@ -88,11 +84,11 @@
                         <li>Qualified buyer network</li>
                         <li>Negotiation expertise</li>
                     </ul>
-                    <a href="contact.html" class="service-btn">Learn More</a>
+                    <a href="contact.html" class="service-btn link-arrow">Learn More <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
                 </div>
 
                 <!-- Service 2: Investment Consulting -->
-                <div class="service-card">
+                <div class="service-card" data-reveal data-reveal-stagger>
                     <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium Growth Chart with Coins -->
                         <circle cx="48" cy="16" r="8" fill="currentColor" opacity="0.15"/>
@@ -117,11 +113,11 @@
                         <li>ROI optimization</li>
                         <li>Exit strategy planning</li>
                     </ul>
-                    <a href="contact.html" class="service-btn">Learn More</a>
+                    <a href="contact.html" class="service-btn link-arrow">Learn More <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
                 </div>
 
                 <!-- Service 3: Market Analysis -->
-                <div class="service-card">
+                <div class="service-card" data-reveal data-reveal-stagger>
                     <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium Analytics Dashboard -->
                         <rect x="8" y="8" width="48" height="48" rx="4" stroke="currentColor" stroke-width="2" fill="none"/>
@@ -144,11 +140,11 @@
                         <li>Investment opportunity identification</li>
                         <li>Custom market reports</li>
                     </ul>
-                    <a href="contact.html" class="service-btn">Learn More</a>
+                    <a href="contact.html" class="service-btn link-arrow">Learn More <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
                 </div>
 
                 <!-- Service 4: Concierge Services -->
-                <div class="service-card">
+                <div class="service-card" data-reveal data-reveal-stagger>
                     <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium Concierge Bell -->
                         <path d="M20 36C20 28 24 20 32 20C40 20 44 28 44 36H20Z" fill="currentColor" opacity="0.15"/>
@@ -171,11 +167,11 @@
                         <li>Insurance and security arrangements</li>
                         <li>Lifestyle services coordination</li>
                     </ul>
-                    <a href="contact.html" class="service-btn">Learn More</a>
+                    <a href="contact.html" class="service-btn link-arrow">Learn More <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
                 </div>
 
                 <!-- Service 5: Global Network -->
-                <div class="service-card">
+                <div class="service-card" data-reveal data-reveal-stagger>
                     <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium Globe Network -->
                         <circle cx="32" cy="32" r="24" fill="currentColor" opacity="0.1"/>
@@ -201,11 +197,11 @@
                         <li>Local market expertise</li>
                         <li>Cultural liaison services</li>
                     </ul>
-                    <a href="contact.html" class="service-btn">Learn More</a>
+                    <a href="contact.html" class="service-btn link-arrow">Learn More <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
                 </div>
 
                 <!-- Service 6: Private Client Services -->
-                <div class="service-card">
+                <div class="service-card" data-reveal data-reveal-stagger>
                     <div class="service-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium VIP Crown with Gems -->
                         <path d="M12 24L16 36L32 32L48 36L52 24L48 36H16L12 24Z" fill="currentColor" opacity="0.2"/>
@@ -230,7 +226,7 @@
                         <li>Dedicated account management</li>
                         <li>24/7 concierge support</li>
                     </ul>
-                    <a href="contact.html" class="service-btn">Learn More</a>
+                    <a href="contact.html" class="service-btn link-arrow">Learn More <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
                 </div>
             </div>
         </div>
@@ -240,12 +236,13 @@
     <section class="service-process">
         <div class="container">
             <div class="section-header">
-                <h2>Our Process</h2>
-                <p>A proven methodology that delivers exceptional results</p>
+                <span class="eyebrow eyebrow--center" data-reveal>How We Work</span>
+                <h2 data-reveal>Our Process</h2>
+                <p data-reveal>A proven methodology that delivers exceptional results.</p>
             </div>
 
             <div class="process-timeline">
-                <div class="process-step">
+                <div class="process-step" data-reveal data-reveal-stagger>
                     <div class="step-number">01</div>
                     <div class="step-content">
                         <h3>Initial Consultation</h3>
@@ -253,7 +250,7 @@
                     </div>
                 </div>
 
-                <div class="process-step">
+                <div class="process-step" data-reveal data-reveal-stagger>
                     <div class="step-number">02</div>
                     <div class="step-content">
                         <h3>Market Research</h3>
@@ -261,7 +258,7 @@
                     </div>
                 </div>
 
-                <div class="process-step">
+                <div class="process-step" data-reveal data-reveal-stagger>
                     <div class="step-number">03</div>
                     <div class="step-content">
                         <h3>Strategy Development</h3>
@@ -269,7 +266,7 @@
                     </div>
                 </div>
 
-                <div class="process-step">
+                <div class="process-step" data-reveal data-reveal-stagger>
                     <div class="step-number">04</div>
                     <div class="step-content">
                         <h3>Execution</h3>
@@ -277,7 +274,7 @@
                     </div>
                 </div>
 
-                <div class="process-step">
+                <div class="process-step" data-reveal data-reveal-stagger>
                     <div class="step-number">05</div>
                     <div class="step-content">
                         <h3>Ongoing Support</h3>
@@ -293,11 +290,12 @@
         <div class="container">
             <div class="why-content">
                 <div class="why-text">
-                    <h2>Why Choose Premier Properties?</h2>
-                    <p class="lead">Our commitment to excellence and client satisfaction sets us apart in the luxury real estate market.</p>
+                    <span class="eyebrow" data-reveal>The Premier Difference</span>
+                    <h2 data-reveal>Why Choose Premier Properties?</h2>
+                    <p class="lead" data-reveal>Our commitment to excellence and client satisfaction sets us apart in the luxury real estate market.</p>
 
                     <div class="advantages-grid">
-                        <div class="advantage">
+                        <div class="advantage" data-reveal data-reveal-stagger>
                             <div class="advantage-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium Key Lock -->
                         <rect x="20" y="28" width="24" height="24" rx="4" fill="currentColor" opacity="0.15"/>
@@ -315,7 +313,7 @@
                             </div>
                         </div>
 
-                        <div class="advantage">
+                        <div class="advantage" data-reveal data-reveal-stagger>
                             <div class="advantage-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium Personalized User -->
                         <circle cx="32" cy="22" r="10" fill="currentColor" opacity="0.15"/>
@@ -331,7 +329,7 @@
                             </div>
                         </div>
 
-                        <div class="advantage">
+                        <div class="advantage" data-reveal data-reveal-stagger>
                             <div class="advantage-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium Success Chart -->
                         <path d="M10 50L18 42L26 38L34 32L42 28L50 20L54 16" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -349,7 +347,7 @@
                             </div>
                         </div>
 
-                        <div class="advantage">
+                        <div class="advantage" data-reveal data-reveal-stagger>
                             <div class="advantage-icon"><svg class="icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                         <!-- Premium World Map -->
                         <circle cx="32" cy="32" r="24" fill="currentColor" opacity="0.1"/>
@@ -369,8 +367,8 @@
                     </div>
                 </div>
 
-                <div class="why-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Service">
+                <div class="why-image media-frame" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="A refined luxury interior">
                 </div>
             </div>
         </div>
@@ -380,12 +378,16 @@
     <section class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>Client Success Stories</h2>
-                <p>Real experiences from satisfied clients</p>
+                <span class="eyebrow eyebrow--center" data-reveal>Client Voices</span>
+                <h2 data-reveal>Client Success Stories</h2>
+                <p data-reveal>Real experiences from satisfied clients.</p>
             </div>
 
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <article class="testimonial-card" data-reveal data-reveal-stagger>
+                    <div class="testimonial-stars" aria-label="Five out of five stars">
+                        <svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg>
+                    </div>
                     <div class="testimonial-content">
                         <p>"Premier Properties helped us navigate a complex international acquisition with exceptional professionalism. Their global network and expertise made the impossible, possible."</p>
                     </div>
@@ -393,9 +395,12 @@
                         <h4>Richard & Patricia Hamilton</h4>
                         <span>International Investors</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="testimonial-card">
+                <article class="testimonial-card" data-reveal data-reveal-stagger>
+                    <div class="testimonial-stars" aria-label="Five out of five stars">
+                        <svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg>
+                    </div>
                     <div class="testimonial-content">
                         <p>"The investment consulting services provided incredible value. Their market analysis helped us identify opportunities that generated exceptional returns on our portfolio."</p>
                     </div>
@@ -403,9 +408,12 @@
                         <h4>Alexandra Morrison</h4>
                         <span>Real Estate Investor</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="testimonial-card">
+                <article class="testimonial-card" data-reveal data-reveal-stagger>
+                    <div class="testimonial-stars" aria-label="Five out of five stars">
+                        <svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg>
+                    </div>
                     <div class="testimonial-content">
                         <p>"From start to finish, the service was impeccable. The concierge support made our transition seamless, handling every detail with care and precision."</p>
                     </div>
@@ -413,24 +421,26 @@
                         <h4>David Chen</h4>
                         <span>Beverly Hills Resident</span>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Experience Premier Service?</h2>
-                <p>Schedule a consultation to discuss your luxury real estate needs</p>
-                <div class="cta-buttons">
+                <span class="eyebrow eyebrow--center" data-reveal>Begin the Conversation</span>
+                <h2 data-reveal>Ready to Experience Premier Service?</h2>
+                <p data-reveal>Schedule a consultation to discuss your luxury real estate needs.</p>
+                <div class="cta-buttons" data-reveal>
                     <a href="contact.html" class="btn btn-primary">Schedule Consultation</a>
-                    <a href="tel:+1-555-PREMIER" class="btn btn-secondary">Call (555) PREMIER</a>
+                    <a href="tel:+15557736437" class="btn btn-secondary">Call (555) PREMIER</a>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -440,23 +450,14 @@
                     <h3>Premier Properties</h3>
                     <p>Setting the standard for luxury real estate excellence since 2010.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook"><svg class="icon icon-hover">
-                            <use href="#icon-facebook"></use>
-                        </svg></a>
-                        <a href="#" aria-label="Instagram"><svg class="icon icon-hover">
-                            <use href="#icon-instagram"></use>
-                        </svg></a>
-                        <a href="#" aria-label="LinkedIn"><svg class="icon icon-hover">
-                            <use href="#icon-linkedin"></use>
-                        </svg></a>
-                        <a href="#" aria-label="Twitter"><svg class="icon icon-hover">
-                            <use href="#icon-twitter"></use>
-                        </svg></a>
+                        <a href="#" aria-label="Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+                        <a href="#" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg class="icon"><use href="#icon-linkedin"></use></svg></a>
+                        <a href="#" aria-label="Twitter"><svg class="icon"><use href="#icon-twitter"></use></svg></a>
                     </div>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Explore</h4>
                     <ul>
                         <li><a href="properties.html">Properties</a></li>
                         <li><a href="about.html">About</a></li>
@@ -464,33 +465,27 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="services.html">Luxury Sales</a></li>
                         <li><a href="services.html">Investment Consulting</a></li>
                         <li><a href="services.html">Market Analysis</a></li>
-                        <li><a href="services.html">Property Management</a></li>
+                        <li><a href="services.html">Private Concierge</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><svg class="icon icon-sm icon-primary">
-                            <use href="#icon-email"></use>
-                        </svg> info@premierproperties.com</p>
-                    <p><svg class="icon icon-sm icon-primary">
-                            <use href="#icon-phone"></use>
-                        </svg> (555) PREMIER</p>
-                    <p><svg class="icon icon-sm icon-primary">
-                            <use href="#icon-location"></use>
-                        </svg> Beverly Hills, CA</p>
+                    <h4>Contact</h4>
+                    <div class="footer-contact">
+                        <p><svg class="icon icon-sm"><use href="#icon-email"></use></svg> info@premierproperties.com</p>
+                        <p><svg class="icon icon-sm"><use href="#icon-phone"></use></svg> (555) PREMIER</p>
+                        <p><svg class="icon icon-sm"><use href="#icon-location"></use></svg> Beverly Hills, CA</p>
+                    </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2024 Premier Properties. All rights reserved.</p>
+                <p>&copy; <span data-year>2024</span> Premier Properties. All rights reserved.</p>
+                <p>Crafted for the extraordinary.</p>
             </div>
         </div>
     </footer>

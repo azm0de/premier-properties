@@ -1,0 +1,101 @@
+/* ============================================================================
+   Home page — section styles unique to index.html
+   (Shared components live in styles.css)
+   ========================================================================== */
+
+/* --- Manifesto / brand statement ----------------------------------------- */
+.manifesto {
+    background: var(--cream);
+    text-align: center;
+}
+.manifesto .container { display: flex; flex-direction: column; align-items: center; }
+.manifesto-statement {
+    font-family: var(--font-display);
+    font-size: clamp(1.7rem, 1rem + 3.4vw, 3.1rem);
+    line-height: 1.22;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    max-width: 20ch;
+    margin-bottom: var(--space-3);
+}
+.manifesto-statement em { font-style: italic; color: var(--brass-deep); }
+.manifesto-sub {
+    font-size: var(--fs-lead);
+    color: var(--stone-500);
+    max-width: 60ch;
+    line-height: 1.65;
+    margin-bottom: var(--space-4);
+}
+
+/* --- Destinations -------------------------------------------------------- */
+.destinations { background: var(--alabaster); }
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1rem, 0.5rem + 1.5vw, 1.75rem);
+}
+.destination-tile {
+    position: relative;
+    display: block;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    isolation: isolate;
+}
+.destination-tile--tall { aspect-ratio: 3 / 4.6; }
+.destination-tile img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-3) var(--ease);
+    z-index: -2;
+}
+.destination-tile::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(15,12,9,0) 35%, rgba(15,12,9,0.78) 100%);
+    z-index: -1;
+    transition: background var(--dur-2) var(--ease);
+}
+.destination-tile:hover img { transform: scale(1.08); }
+.destination-tile:hover::after { background: linear-gradient(180deg, rgba(15,12,9,0.15) 20%, rgba(15,12,9,0.85) 100%); }
+.destination-meta {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: clamp(1.25rem, 1rem + 1vw, 1.85rem);
+    color: var(--white);
+}
+.destination-count {
+    display: inline-block;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 0.5rem;
+}
+.destination-meta h3 {
+    color: var(--white);
+    font-size: clamp(1.3rem, 1rem + 1vw, 1.7rem);
+    position: relative;
+    padding-bottom: 0;
+    transition: transform var(--dur-2) var(--ease);
+}
+.destination-meta h3::after {
+    content: "";
+    display: block;
+    width: 0; height: 1px;
+    margin-top: 0.6rem;
+    background: var(--brass-bright);
+    transition: width var(--dur-2) var(--ease);
+}
+.destination-tile:hover .destination-meta h3::after { width: 2.5rem; }
+
+@media (max-width: 900px) {
+    .destination-grid { grid-template-columns: repeat(2, 1fr); }
+    .destination-tile, .destination-tile--tall { aspect-ratio: 4 / 5; }
+}
+@media (max-width: 520px) {
+    .destination-grid { grid-template-columns: 1fr; }
+    .destination-tile, .destination-tile--tall { aspect-ratio: 16 / 11; }
+}

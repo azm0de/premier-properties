@@ -4,40 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Premier Properties</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="contact.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Begin a private conversation with Premier Properties. Schedule a consultation with our luxury real estate advisors, or visit our office in Texarkana, Texas.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231B1712'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Georgia,serif'%20font-size='18'%20fill='%23B0894F'%20text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Optimized SVG Icon Loading -->
-    <script src="icons-loader.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Google Maps will be loaded dynamically via JavaScript -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="contact.css">
+
+    <script src="icons-loader.js" defer></script>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html"><h2>Premier Properties</h2></a>
+                <a href="index.html" aria-label="Premier Properties — Home"><h2>Premier Properties</h2></a>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="properties.html" class="nav-link">Properties</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="services.html" class="nav-link">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link active contact-btn">Contact</a>
-                </li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="properties.html" class="nav-link">Properties</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link contact-btn active">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -47,14 +41,13 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="contact-hero">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-        </div>
-        <div class="hero-content">
+    <main id="main">
+    <!-- Hero -->
+    <section class="page-hero contact-hero" style="--hero-image:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80')">
+        <div class="container">
+            <span class="eyebrow eyebrow--center">Get In Touch</span>
             <h1>Contact Premier Properties</h1>
-            <p>Let's discuss your luxury real estate needs</p>
+            <p>Let's discuss your luxury real estate needs.</p>
         </div>
     </section>
 
@@ -64,8 +57,9 @@
             <div class="contact-content">
                 <!-- Contact Form -->
                 <div class="contact-form-container">
-                    <h2>Get In Touch</h2>
-                    <p>Schedule a consultation with our luxury real estate experts</p>
+                    <span class="eyebrow" data-reveal>Start the Conversation</span>
+                    <h2 data-reveal>Get In Touch</h2>
+                    <p data-reveal>Schedule a private consultation with our luxury real estate advisors. Every inquiry is held in absolute confidence.</p>
 
                     <form class="contact-form" id="contact-form">
                         <div class="form-row">
@@ -157,7 +151,8 @@
                 </div>
 
                 <!-- Contact Info -->
-                <div class="contact-info">
+                <div class="contact-info on-dark" data-reveal>
+                    <span class="eyebrow">Direct Lines</span>
                     <h3>Contact Information</h3>
 
                     <div class="contact-item">
@@ -231,11 +226,12 @@
     <section class="map-section">
         <div class="container">
             <div class="section-header">
-                <h2>Visit Our Office</h2>
-                <p>Located in Texarkana, Texas</p>
+                <span class="eyebrow eyebrow--center" data-reveal>Find Us</span>
+                <h2 data-reveal>Visit Our Office</h2>
+                <p data-reveal>Located in Texarkana, Texas</p>
             </div>
-            <div class="map-container">
-                <div id="contact-map" style="height: 450px; width: 100%; border-radius: 15px; overflow: hidden; border: 3px solid var(--primary-gold);">
+            <div class="map-container" data-reveal>
+                <div id="contact-map">
                     <!-- Google Maps will be loaded here via JavaScript API -->
                 </div>
                 <div class="map-features">
@@ -257,12 +253,13 @@
     <section class="faq-section">
         <div class="container">
             <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-                <p>Common questions about our services and process</p>
+                <span class="eyebrow eyebrow--center" data-reveal>Good To Know</span>
+                <h2 data-reveal>Frequently Asked Questions</h2>
+                <p data-reveal>Common questions about our services and process.</p>
             </div>
 
             <div class="faq-container">
-                <div class="faq-item">
+                <div class="faq-item" data-reveal data-reveal-stagger>
                     <div class="faq-question">
                         <h3>What sets Premier Properties apart from other luxury real estate firms?</h3>
                         <span class="faq-toggle">+</span>
@@ -272,7 +269,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-reveal data-reveal-stagger>
                     <div class="faq-question">
                         <h3>Do you work with international clients?</h3>
                         <span class="faq-toggle">+</span>
@@ -282,7 +279,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-reveal data-reveal-stagger>
                     <div class="faq-question">
                         <h3>What is your typical transaction timeline?</h3>
                         <span class="faq-toggle">+</span>
@@ -292,7 +289,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-reveal data-reveal-stagger>
                     <div class="faq-question">
                         <h3>Do you offer property management services?</h3>
                         <span class="faq-toggle">+</span>
@@ -302,7 +299,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-reveal data-reveal-stagger>
                     <div class="faq-question">
                         <h3>How do you ensure client privacy and discretion?</h3>
                         <span class="faq-toggle">+</span>
@@ -315,19 +312,21 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Begin Your Journey?</h2>
-                <p>Experience the Premier Properties difference</p>
-                <div class="cta-buttons">
+                <span class="eyebrow eyebrow--center" data-reveal>Begin the Conversation</span>
+                <h2 data-reveal>Ready to Begin Your Journey?</h2>
+                <p data-reveal>Experience the Premier Properties difference.</p>
+                <div class="cta-buttons" data-reveal>
                     <a href="tel:+1-555-PREMIER" class="btn btn-primary">Call Now</a>
                     <a href="properties.html" class="btn btn-secondary">View Properties</a>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -337,23 +336,14 @@
                     <h3>Premier Properties</h3>
                     <p>Setting the standard for luxury real estate excellence since 2010.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook"><svg class="icon icon-hover">
-                            <use href="#icon-facebook"></use>
-                        </svg></a>
-                        <a href="#" aria-label="Instagram"><svg class="icon icon-hover">
-                            <use href="#icon-instagram"></use>
-                        </svg></a>
-                        <a href="#" aria-label="LinkedIn"><svg class="icon icon-hover">
-                            <use href="#icon-linkedin"></use>
-                        </svg></a>
-                        <a href="#" aria-label="Twitter"><svg class="icon icon-hover">
-                            <use href="#icon-twitter"></use>
-                        </svg></a>
+                        <a href="#" aria-label="Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+                        <a href="#" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg class="icon"><use href="#icon-linkedin"></use></svg></a>
+                        <a href="#" aria-label="Twitter"><svg class="icon"><use href="#icon-twitter"></use></svg></a>
                     </div>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Explore</h4>
                     <ul>
                         <li><a href="properties.html">Properties</a></li>
                         <li><a href="about.html">About</a></li>
@@ -361,33 +351,27 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="services.html">Luxury Sales</a></li>
                         <li><a href="services.html">Investment Consulting</a></li>
                         <li><a href="services.html">Market Analysis</a></li>
-                        <li><a href="services.html">Property Management</a></li>
+                        <li><a href="services.html">Private Concierge</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon-email"></use>
-                        </svg> info@premierproperties.com</p>
-                    <p><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon-phone"></use>
-                        </svg> (555) PREMIER</p>
-                    <p><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <use href="#icon-location"></use>
-                        </svg> Texarkana, TX</p>
+                    <h4>Contact</h4>
+                    <div class="footer-contact">
+                        <p><svg class="icon icon-sm"><use href="#icon-email"></use></svg> info@premierproperties.com</p>
+                        <p><svg class="icon icon-sm"><use href="#icon-phone"></use></svg> (555) PREMIER</p>
+                        <p><svg class="icon icon-sm"><use href="#icon-location"></use></svg> Beverly Hills, CA</p>
+                    </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2024 Premier Properties. All rights reserved.</p>
+                <p>&copy; <span data-year>2024</span> Premier Properties. All rights reserved.</p>
+                <p>Crafted for the extraordinary.</p>
             </div>
         </div>
     </footer>

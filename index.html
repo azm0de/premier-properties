@@ -3,38 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premier Properties | Luxury Real Estate Excellence</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>Premier Properties | Luxury Real Estate, Redefined</title>
+    <meta name="description" content="Premier Properties represents the world's most coveted residences. Uncommon design, rarefied locations, and white-glove service since 2010.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231B1712'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Georgia,serif'%20font-size='18'%20fill='%23B0894F'%20text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Optimized SVG Icon Loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+
     <script src="icons-loader.js" defer></script>
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html"><h2>Premier Properties</h2></a>
+                <a href="index.html" aria-label="Premier Properties — Home"><h2>Premier Properties</h2></a>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="properties.html" class="nav-link">Properties</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="services.html" class="nav-link">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link contact-btn">Contact</a>
-                </li>
+                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="properties.html" class="nav-link">Properties</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link contact-btn">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -44,38 +41,49 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <main id="main">
+    <!-- Hero -->
     <section class="hero" id="home">
         <div class="hero-background">
-            <div class="hero-overlay"></div>
+            <img class="hero-img" src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80" alt="A modern luxury villa at dusk">
         </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="hero-subtitle">Luxury Real Estate</span>
-                <span class="hero-main">Excellence Redefined</span>
-            </h1>
-            <p class="hero-description">
-                Discover exceptional properties with Premier Properties. Where luxury meets expertise,
-                and dreams become addresses.
-            </p>
+            <span class="eyebrow">Luxury Real Estate &middot; Est. 2010</span>
+            <h1 class="hero-title"><span class="hero-main">Excellence,<br><em>Redefined</em>.</span></h1>
+            <p class="hero-description">An invitation to the world's most coveted residences — where uncommon design, rarefied locations, and white-glove service converge.</p>
             <div class="hero-buttons">
-                <a href="properties.html" class="btn btn-primary">Explore Properties</a>
-                <a href="contact.html" class="btn btn-secondary">Schedule Consultation</a>
+                <a href="properties.html" class="btn btn-primary">Explore the Collection</a>
+                <a href="contact.html" class="btn btn-secondary is-light">Private Consultation</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">$2.5B+</span>
+                    <span class="stat-label">Sales Volume</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">1,200+</span>
+                    <span class="stat-label">Residences Sold</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
             </div>
         </div>
-        <div class="hero-stats">
-            <div class="stat">
-                <span class="stat-number">$2.5B+</span>
-                <span class="stat-label">Sales Volume</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">1,200+</span>
-                <span class="stat-label">Properties Sold</span>
-            </div>
-            <div class="stat">
-                <span class="stat-number">98%</span>
-                <span class="stat-label">Client Satisfaction</span>
-            </div>
+        <div class="hero-scroll" aria-hidden="true">
+            <span>Scroll</span>
+            <span class="line"></span>
+        </div>
+    </section>
+
+    <!-- Manifesto / brand statement -->
+    <section class="manifesto">
+        <div class="container container--narrow">
+            <span class="eyebrow eyebrow--center" data-reveal>The Premier Standard</span>
+            <p class="manifesto-statement" data-reveal>We don't simply sell homes. We curate the <em>settings</em> for extraordinary lives — and steward every detail with discretion.</p>
+            <p class="manifesto-sub" data-reveal>For more than a decade, the most discerning buyers and sellers have trusted Premier Properties to navigate the rarest corners of the market with judgment, taste, and absolute confidentiality.</p>
+            <a href="about.html" class="link-arrow" data-reveal>Our Story <svg class="icon"><use href="#icon-arrow-right"></use></svg></a>
         </div>
     </section>
 
@@ -83,111 +91,136 @@
     <section class="featured-properties">
         <div class="container">
             <div class="section-header">
-                <h2>Featured Properties</h2>
-                <p>Handpicked luxury homes for discerning clients</p>
+                <span class="eyebrow eyebrow--center" data-reveal>Featured Residences</span>
+                <h2 data-reveal>A Curated Collection</h2>
+                <p data-reveal>Handpicked homes for the most discerning clientele, each defined by architecture, provenance, and place.</p>
             </div>
             <div class="properties-grid">
-                <div class="property-card">
+                <article class="property-card" data-reveal data-reveal-stagger>
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Luxury Villa">
-                        <div class="property-badge">Featured</div>
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Modern Luxury Villa in Beverly Hills">
+                        <span class="property-badge">Featured</span>
                         <div class="property-overlay">
-                            <a href="properties.html" class="btn btn-outline">View Details</a>
+                            <a href="properties.html" class="btn btn-outline">View Residence</a>
                         </div>
                     </div>
                     <div class="property-info">
                         <h3>Modern Luxury Villa</h3>
-                        <p class="property-location">Beverly Hills, CA</p>
+                        <p class="property-location"><svg class="icon icon-sm"><use href="#icon-location"></use></svg> Beverly Hills, California</p>
                         <p class="property-price">$12,500,000</p>
                         <div class="property-features">
-                            <span><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon-bed"></use>
-                                </svg> 6 Beds</span>
-                            <span><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon-bath"></use>
-                                </svg> 8 Baths</span>
-                            <span><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon-area"></use>
-                                </svg> 8,500 sqft</span>
+                            <span><svg class="icon"><use href="#icon-bed"></use></svg> 6 Beds</span>
+                            <span><svg class="icon"><use href="#icon-bath"></use></svg> 8 Baths</span>
+                            <span><svg class="icon"><use href="#icon-area"></use></svg> 8,500 sqft</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="property-card">
+                <article class="property-card" data-reveal data-reveal-stagger>
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Penthouse Suite">
-                        <div class="property-badge">New</div>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Downtown Penthouse in Manhattan">
+                        <span class="property-badge">New</span>
                         <div class="property-overlay">
-                            <a href="properties.html" class="btn btn-outline">View Details</a>
+                            <a href="properties.html" class="btn btn-outline">View Residence</a>
                         </div>
                     </div>
                     <div class="property-info">
                         <h3>Downtown Penthouse</h3>
-                        <p class="property-location">Manhattan, NY</p>
+                        <p class="property-location"><svg class="icon icon-sm"><use href="#icon-location"></use></svg> Manhattan, New York</p>
                         <p class="property-price">$18,750,000</p>
                         <div class="property-features">
-                            <span><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon-bed"></use>
-                                </svg> 4 Beds</span>
-                            <span><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon-bath"></use>
-                                </svg> 5 Baths</span>
-                            <span><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon-area"></use>
-                                </svg> 6,200 sqft</span>
+                            <span><svg class="icon"><use href="#icon-bed"></use></svg> 4 Beds</span>
+                            <span><svg class="icon"><use href="#icon-bath"></use></svg> 5 Baths</span>
+                            <span><svg class="icon"><use href="#icon-area"></use></svg> 6,200 sqft</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="property-card">
+                <article class="property-card" data-reveal data-reveal-stagger>
                     <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Oceanfront Estate">
-                        <div class="property-badge">Exclusive</div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Oceanfront Estate in Malibu">
+                        <span class="property-badge">Exclusive</span>
                         <div class="property-overlay">
-                            <a href="properties.html" class="btn btn-outline">View Details</a>
+                            <a href="properties.html" class="btn btn-outline">View Residence</a>
                         </div>
                     </div>
                     <div class="property-info">
                         <h3>Oceanfront Estate</h3>
-                        <p class="property-location">Malibu, CA</p>
+                        <p class="property-location"><svg class="icon icon-sm"><use href="#icon-location"></use></svg> Malibu, California</p>
                         <p class="property-price">$24,900,000</p>
                         <div class="property-features">
-                            <span><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon-bed"></use>
-                                </svg> 8 Beds</span>
-                            <span><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon-bath"></use>
-                                </svg> 10 Baths</span>
-                            <span><svg class="icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <use href="#icon-area"></use>
-                                </svg> 12,000 sqft</span>
+                            <span><svg class="icon"><use href="#icon-bed"></use></svg> 8 Beds</span>
+                            <span><svg class="icon"><use href="#icon-bath"></use></svg> 10 Baths</span>
+                            <span><svg class="icon"><use href="#icon-area"></use></svg> 12,000 sqft</span>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
-            <div class="view-all">
+            <div class="view-all" data-reveal>
                 <a href="properties.html" class="btn btn-primary">View All Properties</a>
             </div>
         </div>
     </section>
 
-    <!-- Services Overview -->
+    <!-- Destinations -->
+    <section class="destinations">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow eyebrow--center" data-reveal>Where We Operate</span>
+                <h2 data-reveal>Explore by Destination</h2>
+                <p data-reveal>A presence in the addresses that matter most — from coastal estates to skyline penthouses.</p>
+            </div>
+            <div class="destination-grid">
+                <a href="properties.html" class="destination-tile" data-reveal data-reveal-stagger>
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Beverly Hills">
+                    <div class="destination-meta">
+                        <span class="destination-count">12 Residences</span>
+                        <h3>Beverly Hills</h3>
+                    </div>
+                </a>
+                <a href="properties.html" class="destination-tile destination-tile--tall" data-reveal data-reveal-stagger>
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Manhattan">
+                    <div class="destination-meta">
+                        <span class="destination-count">8 Residences</span>
+                        <h3>Manhattan</h3>
+                    </div>
+                </a>
+                <a href="properties.html" class="destination-tile destination-tile--tall" data-reveal data-reveal-stagger>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Malibu">
+                    <div class="destination-meta">
+                        <span class="destination-count">6 Residences</span>
+                        <h3>Malibu</h3>
+                    </div>
+                </a>
+                <a href="properties.html" class="destination-tile" data-reveal data-reveal-stagger>
+                    <img src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80" alt="Aspen">
+                    <div class="destination-meta">
+                        <span class="destination-count">5 Residences</span>
+                        <h3>Aspen</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
     <section class="services-preview">
         <div class="container">
             <div class="services-content">
                 <div class="services-text">
-                    <h2>Exceptional Service</h2>
-                    <p>At Premier Properties, we don't just sell homes - we craft lifestyle experiences. Our comprehensive suite of services ensures every aspect of your real estate journey exceeds expectations.</p>
+                    <span class="eyebrow" data-reveal>What We Offer</span>
+                    <h2 data-reveal>Service Without Equal</h2>
+                    <p data-reveal>We don't just sell homes — we craft lifestyle experiences. Every facet of your journey is anticipated, orchestrated, and delivered with quiet precision.</p>
                     <ul class="services-list">
-                        <li>Luxury Property Acquisition</li>
-                        <li>Investment Consultation</li>
-                        <li>Market Analysis & Valuation</li>
-                        <li>Concierge Services</li>
+                        <li data-reveal>Luxury Property Acquisition</li>
+                        <li data-reveal>Investment Consultation</li>
+                        <li data-reveal>Market Analysis &amp; Valuation</li>
+                        <li data-reveal>Private Concierge Services</li>
                     </ul>
-                    <a href="services.html" class="btn btn-primary">Learn More</a>
+                    <a href="services.html" class="btn btn-secondary" data-reveal>Discover Our Services</a>
                 </div>
-                <div class="services-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Service">
+                <div class="services-image media-frame" data-reveal>
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="A refined luxury interior">
                 </div>
             </div>
         </div>
@@ -197,56 +230,68 @@
     <section class="testimonials">
         <div class="container">
             <div class="section-header">
-                <h2>Client Testimonials</h2>
-                <p>What our valued clients say about their experience</p>
+                <span class="eyebrow eyebrow--center" data-reveal>Client Voices</span>
+                <h2 data-reveal>Regarded by the Few</h2>
+                <p data-reveal>The measure of our work is the trust of those we serve.</p>
             </div>
             <div class="testimonials-grid">
-                <div class="testimonial-card">
+                <article class="testimonial-card" data-reveal data-reveal-stagger>
+                    <div class="testimonial-stars" aria-label="Five out of five stars">
+                        <svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg>
+                    </div>
                     <div class="testimonial-content">
-                        <p>"Premier Properties delivered an extraordinary experience. Their attention to detail and market expertise helped us find our dream home in record time."</p>
+                        <p>Premier Properties delivered an extraordinary experience. Their attention to detail and market expertise helped us find our dream home in record time.</p>
                     </div>
                     <div class="testimonial-author">
-                        <h4>Sarah & Michael Chen</h4>
+                        <h4>Sarah &amp; Michael Chen</h4>
                         <span>Beverly Hills Homeowners</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="testimonial-card">
+                <article class="testimonial-card" data-reveal data-reveal-stagger>
+                    <div class="testimonial-stars" aria-label="Five out of five stars">
+                        <svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg>
+                    </div>
                     <div class="testimonial-content">
-                        <p>"The team's professionalism and deep market knowledge made selling our luxury property seamless. They exceeded every expectation."</p>
+                        <p>The team's professionalism and deep market knowledge made selling our luxury property seamless. They exceeded every expectation.</p>
                     </div>
                     <div class="testimonial-author">
                         <h4>Robert Williams</h4>
                         <span>Manhattan Investor</span>
                     </div>
-                </div>
+                </article>
 
-                <div class="testimonial-card">
+                <article class="testimonial-card" data-reveal data-reveal-stagger>
+                    <div class="testimonial-stars" aria-label="Five out of five stars">
+                        <svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg><svg class="icon"><use href="#icon-star"></use></svg>
+                    </div>
                     <div class="testimonial-content">
-                        <p>"From initial consultation to closing, Premier Properties provided white-glove service. Their network and expertise are unmatched."</p>
+                        <p>From initial consultation to closing, Premier Properties provided white-glove service. Their network and expertise are unmatched.</p>
                     </div>
                     <div class="testimonial-author">
                         <h4>Elena Rodriguez</h4>
                         <span>Malibu Property Owner</span>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA -->
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to Find Your Dream Property?</h2>
-                <p>Let our expert team guide you through the luxury real estate market</p>
-                <div class="cta-buttons">
+                <span class="eyebrow eyebrow--center" data-reveal>Begin the Conversation</span>
+                <h2 data-reveal>Ready to Find Your Dream Property?</h2>
+                <p data-reveal>Let our expert team guide you through the luxury real estate market with discretion and care.</p>
+                <div class="cta-buttons" data-reveal>
                     <a href="contact.html" class="btn btn-primary">Get Started Today</a>
-                    <a href="tel:+1-555-PREMIER" class="btn btn-secondary">Call (555) PREMIER</a>
+                    <a href="tel:+15557736437" class="btn btn-secondary">Call (555) PREMIER</a>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -256,31 +301,14 @@
                     <h3>Premier Properties</h3>
                     <p>Setting the standard for luxury real estate excellence since 2010.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook">
-                            <svg class="icon icon-hover">
-                                <use href="#icon-facebook"></use>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Instagram">
-                            <svg class="icon icon-hover">
-                                <use href="#icon-instagram"></use>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="LinkedIn">
-                            <svg class="icon icon-hover">
-                                <use href="#icon-linkedin"></use>
-                            </svg>
-                        </a>
-                        <a href="#" aria-label="Twitter">
-                            <svg class="icon icon-hover">
-                                <use href="#icon-twitter"></use>
-                            </svg>
-                        </a>
+                        <a href="#" aria-label="Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+                        <a href="#" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg class="icon"><use href="#icon-linkedin"></use></svg></a>
+                        <a href="#" aria-label="Twitter"><svg class="icon"><use href="#icon-twitter"></use></svg></a>
                     </div>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Explore</h4>
                     <ul>
                         <li><a href="properties.html">Properties</a></li>
                         <li><a href="about.html">About</a></li>
@@ -288,61 +316,31 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="services.html">Luxury Sales</a></li>
                         <li><a href="services.html">Investment Consulting</a></li>
                         <li><a href="services.html">Market Analysis</a></li>
-                        <li><a href="services.html">Property Management</a></li>
+                        <li><a href="services.html">Private Concierge</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>
-                        <svg class="icon icon-sm icon-primary">
-                            <use href="#icon-email"></use>
-                        </svg>
-                        info@premierproperties.com
-                    </p>
-                    <p>
-                        <svg class="icon icon-sm icon-primary">
-                            <use href="#icon-phone"></use>
-                        </svg>
-                        (555) PREMIER
-                    </p>
-                    <p>
-                        <svg class="icon icon-sm icon-primary">
-                            <use href="#icon-location"></use>
-                        </svg>
-                        Beverly Hills, CA
-                    </p>
+                    <h4>Contact</h4>
+                    <div class="footer-contact">
+                        <p><svg class="icon icon-sm"><use href="#icon-email"></use></svg> info@premierproperties.com</p>
+                        <p><svg class="icon icon-sm"><use href="#icon-phone"></use></svg> (555) PREMIER</p>
+                        <p><svg class="icon icon-sm"><use href="#icon-location"></use></svg> Beverly Hills, CA</p>
+                    </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2024 Premier Properties. All rights reserved.</p>
+                <p>&copy; <span data-year>2024</span> Premier Properties. All rights reserved.</p>
+                <p>Crafted for the extraordinary.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-
-    <!-- Analytics and Performance Monitoring -->
-    <script>
-        // Monitor icon loading performance
-        window.addEventListener('load', function() {
-            const iconCount = document.querySelectorAll('svg.icon').length;
-            console.log(`[✓] ${iconCount} SVG icons initialized`);
-
-            // Check if all icons have proper accessibility
-            const iconsWithoutAria = document.querySelectorAll('svg.icon:not([aria-label]):not([aria-hidden])');
-            if (iconsWithoutAria.length > 0) {
-                console.warn(`[⚠] ${iconsWithoutAria.length} icons missing accessibility attributes`);
-            }
-        });
-    </script>
 </body>
 </html>

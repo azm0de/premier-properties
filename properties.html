@@ -4,41 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Luxury Properties | Premier Properties</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="properties.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Browse the Premier Properties collection of exceptional homes — coastal estates, skyline penthouses, and private mansions in the world's most desirable locations.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%231B1712'/%3E%3Ctext%20x='16'%20y='22'%20font-family='Georgia,serif'%20font-size='18'%20fill='%23B0894F'%20text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Optimized SVG Icon Loading -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="properties.css">
+
     <script src="icons-loader.js" defer></script>
-
-    <!-- Google Maps will be loaded dynamically via JavaScript -->
 </head>
 <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <a href="index.html"><h2>Premier Properties</h2></a>
+                <a href="index.html" aria-label="Premier Properties — Home"><h2>Premier Properties</h2></a>
             </div>
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="properties.html" class="nav-link active">Properties</a>
-                </li>
-                <li class="nav-item">
-                    <a href="about.html" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="services.html" class="nav-link">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a href="contact.html" class="nav-link contact-btn">Contact</a>
-                </li>
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="properties.html" class="nav-link active">Properties</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="contact.html" class="nav-link contact-btn">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
@@ -48,22 +41,25 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="properties-hero">
-        <div class="hero-background">
-            <div class="hero-overlay"></div>
-        </div>
-        <div class="hero-content">
+    <main id="main">
+    <!-- Hero -->
+    <section class="page-hero properties-hero" style="--hero-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2400&q=80')">
+        <div class="container">
+            <span class="eyebrow eyebrow--center">The Collection</span>
             <h1>Luxury Properties</h1>
-            <p>Discover exceptional homes in the world's most desirable locations</p>
+            <p>Exceptional homes in the world's most desirable locations, curated for those who accept nothing less than extraordinary.</p>
         </div>
     </section>
 
     <!-- Search Filters -->
     <section class="search-section">
         <div class="container">
-            <div class="search-container">
-                <h3>Find Your Perfect Home</h3>
+            <div class="search-container" data-reveal>
+                <div class="search-intro">
+                    <span class="eyebrow">Refine Your Search</span>
+                    <h2>Find Your Perfect Home</h2>
+                    <p>Narrow the collection by location, price, residence size, and type to surface the homes that match your vision.</p>
+                </div>
                 <div class="search-filters">
                     <div class="filter-group">
                         <label for="location">Location</label>
@@ -110,7 +106,10 @@
                         </select>
                     </div>
 
-                    <button class="search-btn">Search Properties</button>
+                    <button class="search-btn btn btn-primary">
+                        Search Properties
+                        <svg class="icon icon-sm"><use href="#icon-arrow-right"></use></svg>
+                    </button>
                 </div>
             </div>
         </div>
@@ -119,9 +118,13 @@
     <!-- Properties Grid -->
     <section class="properties-section">
         <div class="container">
-            <div class="section-header">
-                <h2>Available Properties</h2>
-                <div class="view-options">
+            <div class="section-header section-header--left properties-header">
+                <div class="properties-header-text">
+                    <span class="eyebrow" data-reveal>Available Now</span>
+                    <h2 data-reveal>The Available Collection</h2>
+                    <p data-reveal>Six private residences, each defined by architecture, provenance, and place.</p>
+                </div>
+                <div class="view-options" data-reveal>
                     <button class="view-btn active" data-view="grid">
                         <svg class="icon icon-sm">
                             <use href="#icon-grid"></use>
@@ -139,7 +142,7 @@
 
             <div class="properties-grid" id="properties-grid">
                 <!-- Property 1 -->
-                <div class="property-card" data-location="beverly-hills" data-price="12500000" data-bedrooms="6">
+                <article class="property-card" data-location="beverly-hills" data-price="12500000" data-bedrooms="6" data-reveal data-reveal-stagger>
                     <div class="property-image">
                         <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Luxury Villa">
                         <div class="property-badge">Featured</div>
@@ -176,10 +179,10 @@
                             <span>Wine Cellar</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Property 2 -->
-                <div class="property-card" data-location="manhattan" data-price="18750000" data-bedrooms="4">
+                <article class="property-card" data-location="manhattan" data-price="18750000" data-bedrooms="4" data-reveal data-reveal-stagger>
                     <div class="property-image">
                         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Downtown Penthouse">
                         <div class="property-badge">New</div>
@@ -216,10 +219,10 @@
                             <span>Terrace</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Property 3 -->
-                <div class="property-card" data-location="malibu" data-price="24900000" data-bedrooms="8">
+                <article class="property-card" data-location="malibu" data-price="24900000" data-bedrooms="8" data-reveal data-reveal-stagger>
                     <div class="property-image">
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Oceanfront Estate">
                         <div class="property-badge">Exclusive</div>
@@ -256,10 +259,10 @@
                             <span>Tennis Court</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Property 4 -->
-                <div class="property-card" data-location="miami" data-price="8900000" data-bedrooms="5">
+                <article class="property-card" data-location="miami" data-price="8900000" data-bedrooms="5" data-reveal data-reveal-stagger>
                     <div class="property-image">
                         <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Miami Beach Condo">
                         <div class="property-badge">Hot</div>
@@ -296,10 +299,10 @@
                             <span>Gym</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Property 5 -->
-                <div class="property-card" data-location="aspen" data-price="15200000" data-bedrooms="6">
+                <article class="property-card" data-location="aspen" data-price="15200000" data-bedrooms="6" data-reveal data-reveal-stagger>
                     <div class="property-image">
                         <img src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Aspen Mountain Lodge">
                         <div class="property-badge">New</div>
@@ -336,10 +339,10 @@
                             <span>Hot Tub</span>
                         </div>
                     </div>
-                </div>
+                </article>
 
                 <!-- Property 6 -->
-                <div class="property-card" data-location="beverly-hills" data-price="32500000" data-bedrooms="7">
+                <article class="property-card" data-location="beverly-hills" data-price="32500000" data-bedrooms="7" data-reveal data-reveal-stagger>
                     <div class="property-image">
                         <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beverly Hills Mansion">
                         <div class="property-badge">Luxury</div>
@@ -376,10 +379,10 @@
                             <span>Guest House</span>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
 
-            <div class="load-more">
+            <div class="load-more" data-reveal>
                 <button class="btn btn-primary">Load More Properties</button>
             </div>
         </div>
@@ -389,11 +392,12 @@
     <section class="map-section">
         <div class="container">
             <div class="section-header">
-                <h2>Property Locations</h2>
-                <p>Explore our luxury properties on the map</p>
+                <span class="eyebrow eyebrow--center" data-reveal>Where We Operate</span>
+                <h2 data-reveal>Property Locations</h2>
+                <p data-reveal>Explore our luxury residences across the addresses that matter most.</p>
             </div>
-            <div class="map-container">
-                <div id="properties-map" style="height: 500px; width: 100%; border-radius: 15px; overflow: hidden; border: 3px solid var(--primary-gold);">
+            <div class="map-container" data-reveal>
+                <div id="properties-map">
                     <!-- Google Maps will be loaded here via JavaScript API -->
                 </div>
                 <div class="map-legend">
@@ -444,15 +448,17 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-content">
-                <h2>Can't Find What You're Looking For?</h2>
-                <p>Our expert team has access to exclusive off-market properties</p>
-                <div class="cta-buttons">
+                <span class="eyebrow eyebrow--center" data-reveal>Beyond the Listings</span>
+                <h2 data-reveal>Can't Find What You're Looking For?</h2>
+                <p data-reveal>Our expert team has access to exclusive off-market properties reserved for our most discerning clients.</p>
+                <div class="cta-buttons" data-reveal>
                     <a href="contact.html" class="btn btn-primary">Contact Our Team</a>
                     <a href="tel:+1-555-PREMIER" class="btn btn-secondary">Call (555) PREMIER</a>
                 </div>
             </div>
         </div>
     </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -462,23 +468,14 @@
                     <h3>Premier Properties</h3>
                     <p>Setting the standard for luxury real estate excellence since 2010.</p>
                     <div class="social-links">
-                        <a href="#" aria-label="Facebook"><svg class="icon icon-hover">
-                                <use href="#icon-facebook"></use>
-                            </svg></a>
-                        <a href="#" aria-label="Instagram"><svg class="icon icon-hover">
-                                <use href="#icon-instagram"></use>
-                            </svg></a>
-                        <a href="#" aria-label="LinkedIn"><svg class="icon icon-hover">
-                                <use href="#icon-linkedin"></use>
-                            </svg></a>
-                        <a href="#" aria-label="Twitter"><svg class="icon icon-hover">
-                                <use href="#icon-twitter"></use>
-                            </svg></a>
+                        <a href="#" aria-label="Facebook"><svg class="icon"><use href="#icon-facebook"></use></svg></a>
+                        <a href="#" aria-label="Instagram"><svg class="icon"><use href="#icon-instagram"></use></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg class="icon"><use href="#icon-linkedin"></use></svg></a>
+                        <a href="#" aria-label="Twitter"><svg class="icon"><use href="#icon-twitter"></use></svg></a>
                     </div>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h4>Explore</h4>
                     <ul>
                         <li><a href="properties.html">Properties</a></li>
                         <li><a href="about.html">About</a></li>
@@ -486,33 +483,27 @@
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
                         <li><a href="services.html">Luxury Sales</a></li>
                         <li><a href="services.html">Investment Consulting</a></li>
                         <li><a href="services.html">Market Analysis</a></li>
-                        <li><a href="services.html">Property Management</a></li>
+                        <li><a href="services.html">Private Concierge</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p><svg class="icon icon-sm icon-primary">
-                            <use href="#icon-email"></use>
-                        </svg> info@premierproperties.com</p>
-                    <p><svg class="icon icon-sm icon-primary">
-                            <use href="#icon-phone"></use>
-                        </svg> (555) PREMIER</p>
-                    <p><svg class="icon icon-sm icon-primary">
-                                <use href="#icon-location"></use>
-                            </svg> Beverly Hills, CA</p>
+                    <h4>Contact</h4>
+                    <div class="footer-contact">
+                        <p><svg class="icon icon-sm"><use href="#icon-email"></use></svg> info@premierproperties.com</p>
+                        <p><svg class="icon icon-sm"><use href="#icon-phone"></use></svg> (555) PREMIER</p>
+                        <p><svg class="icon icon-sm"><use href="#icon-location"></use></svg> Beverly Hills, CA</p>
+                    </div>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2024 Premier Properties. All rights reserved.</p>
+                <p>&copy; <span data-year>2024</span> Premier Properties. All rights reserved.</p>
+                <p>Crafted for the extraordinary.</p>
             </div>
         </div>
     </footer>
